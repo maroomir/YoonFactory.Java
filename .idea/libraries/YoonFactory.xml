@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="YoonFactory">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/YoonFactory/out/artifacts/YoonFactory_jar/YoonFactory.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
