@@ -1,13 +1,14 @@
 package YoonFile;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+import org.ini4j.Ini;
+import org.ini4j.InvalidFileFormatException;
+import org.ini4j.Wini;
+
+import java.io.File;
 import java.io.IOException;
-import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class YoonIni implements IYoonProperties {
+public class YoonIni implements IYoonFile {
     private String m_strFilePath;
 
     @Override
@@ -20,7 +21,7 @@ public class YoonIni implements IYoonProperties {
     }
 
     @Override
-    public void CopyFrom(IYoonProperties pFile) {
+    public void CopyFrom(IYoonFile pFile) {
         if (pFile instanceof YoonIni) {
             YoonIni pIni = (YoonIni) pFile;
             m_strFilePath = pIni.GetFilePath();
@@ -28,24 +29,22 @@ public class YoonIni implements IYoonProperties {
     }
 
     @Override
-    public IYoonProperties Clone() {
+    public IYoonFile Clone() {
         return new YoonIni(m_strFilePath);
     }
 
     @Override
     public boolean IsFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
-        return FileManagement.VerifyFileExtension(refStrPath, "ini", true, true);
+        return FileManagement.VerifyFileExtension(refStrPath, "ini", false, false);
     }
 
-    @Override
-    public String GetValue(String strKey) {
+    public String GetValue(String strSection, String strKey) {
         if (!IsFileExist()) return null;
         try {
-            Properties pPropIni = new Properties();
-            pPropIni.load(new FileInputStream(m_strFilePath));
-            return pPropIni.getProperty(strKey);
-        } catch (FileNotFoundException e) {
+            Ini pIni = new Ini(new File(m_strFilePath));
+            return pIni.get(strSection, strKey);
+        } catch (InvalidFileFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,14 +52,14 @@ public class YoonIni implements IYoonProperties {
         return null;
     }
 
-    @Override
-    public boolean SetValue(String strKey, String strValue) {
+    public boolean SetValue(String strSection, String strKey, String strValue) {
         if (!IsFileExist()) return false;
         try {
-            Properties pPropIni = new Properties();
-            pPropIni.setProperty(strKey, strValue);
-            pPropIni.store(new FileOutputStream(m_strFilePath), null);
-        } catch (FileNotFoundException e) {
+            Wini pIni = new Wini(new File(m_strFilePath));
+            pIni.put(strSection, strKey, strValue);
+            pIni.store();
+            return true;
+        } catch (InvalidFileFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

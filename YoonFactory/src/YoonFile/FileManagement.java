@@ -86,6 +86,27 @@ public class FileManagement {
         return pListFile;
     }
 
+    public static boolean SetTextToFile(String path, String data) {
+        FileOutputStream pStream = null;
+        try {
+            pStream = new FileOutputStream(path, false);
+            pStream.write(data.getBytes(StandardCharsets.UTF_8));
+            pStream.close();
+            return true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (pStream != null) pStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
     public static boolean AppendTextToFile(String path, String data) {
         FileOutputStream pStream = null;
         try {

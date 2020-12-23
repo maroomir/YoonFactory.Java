@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class YoonProperties implements IYoonProperties {
+public class YoonProperties implements IYoonFile {
     private String m_strFilePath;
 
     @Override
@@ -20,31 +20,30 @@ public class YoonProperties implements IYoonProperties {
     }
 
     @Override
-    public void CopyFrom(IYoonProperties pFile) {
+    public void CopyFrom(IYoonFile pFile) {
         if (pFile instanceof YoonProperties) {
-            YoonProperties pIni = (YoonProperties) pFile;
-            m_strFilePath = pIni.GetFilePath();
+            YoonProperties pProperties = (YoonProperties) pFile;
+            m_strFilePath = pProperties.GetFilePath();
         }
     }
 
     @Override
-    public IYoonProperties Clone() {
+    public IYoonFile Clone() {
         return new YoonProperties(m_strFilePath);
     }
 
     @Override
     public boolean IsFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
-        return FileManagement.VerifyFileExtension(refStrPath, "properties", true, true);
+        return FileManagement.VerifyFileExtension(refStrPath, "properties", false, false);
     }
 
-    @Override
     public String GetValue(String strKey) {
         if (!IsFileExist()) return null;
         try {
-            Properties pPropIni = new Properties();
-            pPropIni.load(new FileInputStream(m_strFilePath));
-            return pPropIni.getProperty(strKey);
+            Properties pProp = new Properties();
+            pProp.load(new FileInputStream(m_strFilePath));
+            return pProp.getProperty(strKey);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -53,13 +52,13 @@ public class YoonProperties implements IYoonProperties {
         return null;
     }
 
-    @Override
     public boolean SetValue(String strKey, String strValue) {
         if (!IsFileExist()) return false;
         try {
-            Properties pPropIni = new Properties();
-            pPropIni.setProperty(strKey, strValue);
-            pPropIni.store(new FileOutputStream(m_strFilePath), null);
+            Properties pProp = new Properties();
+            pProp.setProperty(strKey, strValue);
+            pProp.store(new FileOutputStream(m_strFilePath), null);
+            return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
