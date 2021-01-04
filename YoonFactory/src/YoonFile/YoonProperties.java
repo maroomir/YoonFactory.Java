@@ -35,7 +35,7 @@ public class YoonProperties implements IYoonFile {
     @Override
     public boolean IsFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
-        return FileManagement.VerifyFileExtension(refStrPath, "properties", false, false);
+        return FileFactory.VerifyFileExtension(refStrPath, "properties", false, false);
     }
 
     public String GetValue(String strKey) {

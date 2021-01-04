@@ -35,7 +35,7 @@ public class YoonJson implements IYoonFile {
     @Override
     public boolean IsFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
-        return FileManagement.VerifyFileExtension(refStrPath, "json", false, false);
+        return FileFactory.VerifyFileExtension(refStrPath, "json", false, false);
     }
 
     public Object LoadFile(Type pType) {
@@ -55,7 +55,7 @@ public class YoonJson implements IYoonFile {
         try {
             Gson pGson = new Gson();
             String strJsonData = pGson.toJson(pObject, pType);
-            return FileManagement.SetTextToFile(m_strFilePath, strJsonData);
+            return FileFactory.SetTextToFile(m_strFilePath, strJsonData);
         } catch (Exception e) {
             e.printStackTrace();
         }

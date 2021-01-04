@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class FileManagement {
+public class FileFactory {
 
     public static boolean VerifyDirectory(String path) {
         File pDir = new File(path);
