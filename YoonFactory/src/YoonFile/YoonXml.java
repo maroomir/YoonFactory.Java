@@ -43,7 +43,7 @@ public class YoonXml implements IYoonFile {
     @Override
     public boolean IsFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
-        return FileManagement.VerifyFileExtension(refStrPath, "xml", false, false);
+        return FileFactory.VerifyFileExtension(refStrPath, "xml", false, false);
     }
 
     public Document LoadFile() throws IOException {

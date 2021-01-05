@@ -6,86 +6,22 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_ini4j_ini4j_0_5_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/IYoonFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonJson.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonParameter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonTemplate.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonXml.java" afterDir="false" />
+    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Optimize in JavaSDK 15">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_springframework_spring_core_5_2_8_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IShowMessageEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IYoonTcpIp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/ShowMessageEventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonTcpParam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YoonFactory.Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory.Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/artifacts/YoonFactory_jar/YoonFactory.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonCart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonMapping.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonMatrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonMatrix2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonMatrix3D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonParameter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonRect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonResult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonTemplate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonTriangle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonVector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonVector2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/IYoonVector3D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/YoonMatrix2X2Double.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/YoonMatrix2X2Int.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/eYoonDirClock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/eYoonDirCompass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/eYoonDirNature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/eYoonDirRect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/eYoonDirX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/eYoonDirY.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/eYoonMouseMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/out/production/YoonFactory/YoonCommon/eYoonStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonTemplate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/FileManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/IYoonProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/FileManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/FileFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonIni.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonIni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonJson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/YoonFactory_Java_jar/YoonFactory.Java.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonContainer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonMapping.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonMatrix.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonMatrix2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonMatrix3D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonParameter.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonRect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonResult.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonTemplate.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonTriangle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonVector.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonVector2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/IYoonVector3D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonMatrix2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonMatrix2N.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonMatrix2X2Double.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonMatrix2X2Int.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonMatrix3X3Double.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonMatrix3X3Int.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonRect2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonRect2N.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonRectAffine2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonVector2D.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/YoonVector2N.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/eYoonDirClock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/eYoonDirCompass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/eYoonDirNature.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/eYoonDirRect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/eYoonDirX.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/eYoonDirY.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/eYoonMouseMode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonCommon/eYoonStatus.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonFile/FileManagement$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonFile/FileManagement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/YoonFactory.Java/YoonFile/IniControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonXml.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,7 +58,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -139,6 +75,14 @@
       <option name="presentableId" value="Default" />
       <updated>1608043956650</updated>
     </task>
+    <task id="LOCAL-00001" summary="Optimize in JavaSDK 15">
+      <created>1609144600495</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609144600495</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,5 +108,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Optimize in JavaSDK 15" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize in JavaSDK 15" />
   </component>
 </project>
