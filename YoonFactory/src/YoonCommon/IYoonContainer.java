@@ -3,29 +3,27 @@ import java.util.Map;
 
 public interface IYoonContainer<T> {
 
-    String GetRootDirectory();
+    String getRootDirectory();
 
-    void SetRootDirectory(String strDir);
+    void setRootDirectory(String strDir);
 
-    void CopyFrom(IYoonContainer pContainer);
+    void copyFrom(IYoonContainer pContainer);
 
-    IYoonContainer Clone();
+    void clear();
 
-    void Clear();
+    boolean loadValue(String strKey);
 
-    boolean LoadValue(String strKey);
+    boolean saveValue(String strKey);
 
-    boolean SaveValue(String strKey);
+    Map<String, T> getObjectMap();
 
-    Map<String, T> GetObjectMap();
+    boolean add(String strKey, T pValue);
 
-    boolean Add(String strKey, T pValue);
+    boolean remove(String strKey);
 
-    boolean Remove(String strKey);
+    String getKey(T pValue);
 
-    String GetKey(T pValue);
+    T getValue(String strKey);
 
-    T GetValue(String strKey);
-
-    void SetValue(String strKey, T pValue);
+    void setValue(String strKey, T pValue);
 }

@@ -2,25 +2,23 @@ package YoonCommon;
 
 public interface IYoonRect<T> {
 
-    T GetLeft();
+    T getLeft();
 
-    T GetTop();
+    T getTop();
 
-    T GetRight();
+    T getRight();
 
-    T GetBottom();
+    T getBottom();
 
-    IYoonVector GetTopLeft();
+    IYoonVector getTopLeft();
 
-    IYoonVector GetTopRight();
+    IYoonVector getTopRight();
 
-    IYoonVector GetBottomLeft();
+    IYoonVector getBottomLeft();
 
-    IYoonVector GetBottomRight();
+    IYoonVector getBottomRight();
 
-    T Area();
+    T area();
 
-    IYoonRect Clone();
-
-    void CopyFrom(IYoonRect pRect);
+    void copyFrom(IYoonRect pRect);
 }

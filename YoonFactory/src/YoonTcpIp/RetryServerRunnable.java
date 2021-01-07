@@ -5,7 +5,7 @@ import org.springframework.util.StopWatch;
 
 import java.net.ServerSocket;
 
-public class RetryServerRunnable implements Runnable {
+class RetryServerRunnable implements Runnable {
 
     private StopWatch m_pStopWatch = new StopWatch();
     private YoonServer Parents = null;
@@ -14,20 +14,12 @@ public class RetryServerRunnable implements Runnable {
     private int m_nTimeout = 1000;
     private boolean m_bRetryOpen = false;
 
-    public void setParents(YoonServer parents) {
-        Parents = parents;
-    }
-
-    public void setServerSocket(ServerSocket serverSocket) {
-        this.m_serverSocket = serverSocket;
-    }
-
-    public void setRetryCount(int nRetryCount) {
-        this.m_nRetryCount = nRetryCount;
-    }
-
-    public void setTimeout(int nTimeout) {
-        this.m_nTimeout = nTimeout;
+    public RetryServerRunnable(YoonServer pParants, ServerSocket pServerSocket) throws Exception {
+        Parents = pParants;
+        if (Parents == null) throw new Exception();
+        m_nRetryCount = pParants.getRetryCount();
+        m_nTimeout = pParants.getTimeout();
+        m_serverSocket = pServerSocket;
     }
 
     public void setRetryOpen(boolean bRetryOpen) {
@@ -36,7 +28,7 @@ public class RetryServerRunnable implements Runnable {
 
     @Override
     public void run() {
-        if (Parents == null) return;
+        if (Parents == null || m_serverSocket == null) return;
         m_pStopWatch.stop();
         m_pStopWatch.start();
         ShowMessageEventHandler.CallEvent(RetryServerRunnable.class, eYoonStatus.Info, "Retry Server Start");

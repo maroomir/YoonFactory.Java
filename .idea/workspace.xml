@@ -7,15 +7,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Optimize in JavaSDK 15">
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerRunnable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/SocketRunnable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-core-5.2.8.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/spring-jcl-5.2.8.RELEASE.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/ActiveServerRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/eStepTcpThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMatrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMatrix2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMatrix2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMatrix3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMatrix3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonParameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonRect.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonRect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonTriangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonTriangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonVector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonVector2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonVector2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonVector3D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonVector3D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2N.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2N.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2X2Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2X2Double.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2X2Int.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2X2Int.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix3X3Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix3X3Double.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix3X3Int.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix3X3Int.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonRect2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonRect2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonRect2N.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonRect2N.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonRectAffine2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonRectAffine2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonVector2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonVector2D.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonVector2N.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonVector2N.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/FileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/FileFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/IYoonFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/IYoonFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonIni.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonIni.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonJson.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonParameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/YoonXml.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IShowMessageEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IShowMessageEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IYoonTcpIp.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IYoonTcpIp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/ShowMessageEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/ShowMessageEventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/SocketRunnable.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonTcpParam.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,14 +61,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1lhKbfrkDyNDustA4XmUcYgdAVF" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -49,7 +93,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />

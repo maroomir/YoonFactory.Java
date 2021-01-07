@@ -1,31 +1,31 @@
 package YoonCommon;
 
 public interface IYoonVector3D<T> extends IYoonVector<T>{
-    T GetW();
+    T getW();
 
-    void SetW();
+    void setW();
 
-    T GetX();
+    T getX();
 
-    void SetX();
+    void setX();
 
-    T GetY();
+    T getY();
 
-    void SetY();
+    void setY();
 
-    T GetZ();
+    T getZ();
 
-    void SetZ();
+    void setZ();
 
-    IYoonVector Scale(T sx, T sy, T sz);
+    IYoonVector scale(T sx, T sy, T sz);
 
-    IYoonVector Move(T dx, T dy, T dz);
+    IYoonVector move(T dx, T dy, T dz);
 
-    IYoonVector Move(IYoonVector pVector);
+    IYoonVector move(IYoonVector pVector);
 
-    IYoonVector RotateX(double dAngle);
+    IYoonVector rotateX(double dAngle);
 
-    IYoonVector RotateY(double dAngle);
+    IYoonVector rotateY(double dAngle);
 
-    IYoonVector RotateZ(double dAngle);
+    IYoonVector rotateZ(double dAngle);
 }

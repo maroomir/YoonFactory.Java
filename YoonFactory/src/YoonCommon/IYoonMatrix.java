@@ -2,33 +2,31 @@ package YoonCommon;
 
 public interface IYoonMatrix<T> {
 
-    int GetLength();
+    int getLength();
 
-    T GetDeterminant();
+    T getDeterminant();
 
-    T Cofactor(int nRow, int nCol);   // 여인자
+    T cofactor(int nRow, int nCol);   // 여인자
 
-    IYoonMatrix GetMinorMatrix(int nRow, int nCol);   // 소행렬
+    IYoonMatrix getMinorMatrix(int nRow, int nCol);   // 소행렬
 
-    IYoonMatrix GetAdjointMatrix();   // 수반행렬
+    IYoonMatrix getAdjointMatrix();   // 수반행렬
 
-    void CopyFrom(IYoonMatrix pMatrix);
+    void copyFrom(IYoonMatrix pMatrix);
 
-    IYoonMatrix Clone();
+    IYoonMatrix inverse();
 
-    IYoonMatrix Inverse();
+    IYoonMatrix transpose();
 
-    IYoonMatrix Transpose();
+    IYoonMatrix unit();
 
-    IYoonMatrix Unit();
+    IYoonMatrix add(IYoonMatrix pObject);
 
-    IYoonMatrix Add(IYoonMatrix pObject);
+    IYoonMatrix substract(IYoonMatrix pObject);
 
-    IYoonMatrix Substract(IYoonMatrix pObject);
+    IYoonMatrix multiple(T value);
 
-    IYoonMatrix Multiple(T value);
+    IYoonMatrix multiple(IYoonMatrix pObject);
 
-    IYoonMatrix Multiple(IYoonMatrix pObject);
-
-    IYoonMatrix Divide(T value);
+    IYoonMatrix divide(T value);
 }

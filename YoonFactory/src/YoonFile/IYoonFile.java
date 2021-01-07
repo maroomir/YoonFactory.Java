@@ -1,11 +1,9 @@
 package YoonFile;
 
 public interface IYoonFile {
-    String GetFilePath();
+    String getFilePath();
 
-    void CopyFrom(IYoonFile pFile);
+    void copyFrom(IYoonFile pFile);
 
-    IYoonFile Clone();
-
-    boolean IsFileExist();
+    boolean isFileExist();
 }

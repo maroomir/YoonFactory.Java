@@ -12,7 +12,7 @@ public class YoonIni implements IYoonFile {
     private String m_strFilePath;
 
     @Override
-    public String GetFilePath() {
+    public String getFilePath() {
         return m_strFilePath;
     }
 
@@ -21,26 +21,26 @@ public class YoonIni implements IYoonFile {
     }
 
     @Override
-    public void CopyFrom(IYoonFile pFile) {
+    public void copyFrom(IYoonFile pFile) {
         if (pFile instanceof YoonIni) {
             YoonIni pIni = (YoonIni) pFile;
-            m_strFilePath = pIni.GetFilePath();
+            m_strFilePath = pIni.getFilePath();
         }
     }
 
     @Override
-    public IYoonFile Clone() {
+    public IYoonFile clone() {
         return new YoonIni(m_strFilePath);
     }
 
     @Override
-    public boolean IsFileExist() {
+    public boolean isFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
         return FileFactory.VerifyFileExtension(refStrPath, "ini", false, false);
     }
 
-    public String GetValue(String strSection, String strKey) {
-        if (!IsFileExist()) return null;
+    public String getValue(String strSection, String strKey) {
+        if (!isFileExist()) return null;
         try {
             Ini pIni = new Ini(new File(m_strFilePath));
             return pIni.get(strSection, strKey);
@@ -52,8 +52,8 @@ public class YoonIni implements IYoonFile {
         return null;
     }
 
-    public boolean SetValue(String strSection, String strKey, String strValue) {
-        if (!IsFileExist()) return false;
+    public boolean setValue(String strSection, String strKey, String strValue) {
+        if (!isFileExist()) return false;
         try {
             Wini pIni = new Wini(new File(m_strFilePath));
             pIni.put(strSection, strKey, strValue);

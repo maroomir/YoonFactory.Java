@@ -3,29 +3,27 @@ import java.util.ArrayList;
 
 public interface IYoonMapping {
 
-    void CopyFrom(IYoonMapping pMapping);
+    void copyFrom(IYoonMapping pMapping);
 
-    IYoonMapping Clone();
+    int getWidth();
 
-    int GetWidth();
+    int getHeight();
 
-    int GetHeight();
+    IYoonVector getOffset();
 
-    IYoonVector GetOffset();
+    ArrayList<IYoonVector> getRealPoints();
 
-    ArrayList<IYoonVector> GetRealPoints();
+    void setRealPoints(ArrayList<IYoonVector> pList);
 
-    void SetRealPoints(ArrayList<IYoonVector> pList);
+    ArrayList<IYoonVector> getPixelPoints();
 
-    ArrayList<IYoonVector> GetPixelPoints();
+    void setPixelPoints(ArrayList<IYoonVector> pList);
 
-    void SetPixelPoints(ArrayList<IYoonVector> pList);
+    void setReferencePosition(IYoonVector pVecPixelPos, IYoonVector pVecRealPos);
 
-    void SetReferencePosition(IYoonVector pVecPixelPos, IYoonVector pVecRealPos);
+    IYoonVector getPixelResolution(IYoonVector pVecPixelPos);   // mm/pixel
 
-    IYoonVector GetPixelResolution(IYoonVector pVecPixelPos);   // mm/pixel
+    IYoonVector toPixel(IYoonVector pVecRealPos);
 
-    IYoonVector ToPixel(IYoonVector pVecRealPos);
-
-    IYoonVector ToReal(IYoonVector pVecPixelPos);
+    IYoonVector toReal(IYoonVector pVecPixelPos);
 }

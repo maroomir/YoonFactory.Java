@@ -2,162 +2,163 @@ package YoonCommon;
 
 public class YoonMatrix2X2Double implements IYoonMatrix<Double> {
 
-    public double[][] Array = new double[2][2];
+    public double[][] array = new double[2][2];
 
-    public int GetLength() {
+    public int getLength() {
         return 2;
     }
 
-    public double GetMatrix11() {
-        return Array[0][0];
+    public double getMatrix11() {
+        return array[0][0];
     }
 
-    public void SetMatrix11(double dValue) {
-        Array[0][0] = dValue;
+    public void setMatrix11(double dValue) {
+        array[0][0] = dValue;
     }
 
-    public double GetMatrix12() {
-        return Array[0][1];
+    public double getMatrix12() {
+        return array[0][1];
     }
 
-    public void SetMatrix12(double dValue) {
-        Array[0][1] = dValue;
+    public void setMatrix12(double dValue) {
+        array[0][1] = dValue;
     }
 
-    public double GetMatrix21() {
-        return Array[1][0];
+    public double getMatrix21() {
+        return array[1][0];
     }
 
-    public void SetMatrix21(double dValue) {
-        Array[1][0] = dValue;
+    public void setMatrix21(double dValue) {
+        array[1][0] = dValue;
     }
 
-    public double GetMatrix22() {
-        return Array[1][1];
+    public double getMatrix22() {
+        return array[1][1];
     }
 
-    public void SetMatrix22(double dValue) {
-        Array[1][1] = dValue;
+    public void setMatrix22(double dValue) {
+        array[1][1] = dValue;
     }
 
     public YoonMatrix2X2Double() {
-        Array[0][0] = Array[1][1] = 1.0;
-        Array[0][1] = Array[1][0] = 0.0;
+        array[0][0] = array[1][1] = 1.0;
+        array[0][1] = array[1][0] = 0.0;
     }
 
     public YoonMatrix2X2Double(IYoonMatrix m) {
-        this.CopyFrom(m);
+        this.copyFrom(m);
     }
 
-    public Double GetDeterminant() {
-        return GetMatrix11() * GetMatrix22() - GetMatrix12() * GetMatrix21();
+    public Double getDeterminant() {
+        return getMatrix11() * getMatrix22() - getMatrix12() * getMatrix21();
     }
 
-    public Double Cofactor(int nRow, int nCol) {
+    public Double cofactor(int nRow, int nCol) {
         return 0.0;
     }
 
-    public IYoonMatrix GetMinorMatrix(int nRow, int nCol) {
+    public IYoonMatrix getMinorMatrix(int nRow, int nCol) {
         return new YoonMatrix2X2Double();
     }
 
-    public IYoonMatrix GetAdjointMatrix() {
+    public IYoonMatrix getAdjointMatrix() {
         return new YoonMatrix2X2Double();
     }
 
-    public IYoonMatrix Clone() {
+    @Override
+    public IYoonMatrix clone() {
         YoonMatrix2X2Double pMatrix = new YoonMatrix2X2Double();
-        pMatrix.SetMatrix11(GetMatrix11());
-        pMatrix.SetMatrix12(GetMatrix12());
-        pMatrix.SetMatrix21(GetMatrix21());
-        pMatrix.SetMatrix22(GetMatrix22());
+        pMatrix.setMatrix11(getMatrix11());
+        pMatrix.setMatrix12(getMatrix12());
+        pMatrix.setMatrix21(getMatrix21());
+        pMatrix.setMatrix22(getMatrix22());
         return pMatrix;
     }
 
-    public void CopyFrom(IYoonMatrix pMatrix) {
+    public void copyFrom(IYoonMatrix pMatrix) {
         if (pMatrix instanceof YoonMatrix2X2Double) {
             YoonMatrix2X2Double pObject = (YoonMatrix2X2Double) pMatrix;
-            SetMatrix11(pObject.GetMatrix11());
-            SetMatrix12(pObject.GetMatrix12());
-            SetMatrix21(pObject.GetMatrix21());
-            SetMatrix22(pObject.GetMatrix22());
+            setMatrix11(pObject.getMatrix11());
+            setMatrix12(pObject.getMatrix12());
+            setMatrix21(pObject.getMatrix21());
+            setMatrix22(pObject.getMatrix22());
         }
     }
 
-    public IYoonMatrix Inverse() {
-        if (GetDeterminant() == 0) return Unit();
+    public IYoonMatrix inverse() {
+        if (getDeterminant() == 0) return unit();
 
         YoonMatrix2X2Double m = new YoonMatrix2X2Double(this);
-        SetMatrix11(m.GetMatrix22() / m.GetDeterminant());
-        SetMatrix12(-m.GetMatrix12() / m.GetDeterminant());
-        SetMatrix21(-m.GetMatrix21() / m.GetDeterminant());
-        SetMatrix22(m.GetMatrix11() / m.GetDeterminant());
+        setMatrix11(m.getMatrix22() / m.getDeterminant());
+        setMatrix12(-m.getMatrix12() / m.getDeterminant());
+        setMatrix21(-m.getMatrix21() / m.getDeterminant());
+        setMatrix22(m.getMatrix11() / m.getDeterminant());
         return this;
     }
 
-    public IYoonMatrix Transpose() {
+    public IYoonMatrix transpose() {
         YoonMatrix2X2Double m = new YoonMatrix2X2Double(this);
-        SetMatrix12(m.GetMatrix21());
-        SetMatrix21(m.GetMatrix12());
+        setMatrix12(m.getMatrix21());
+        setMatrix21(m.getMatrix12());
         return this;
     }
 
-    public IYoonMatrix Unit() {
-        Array[0][0] = Array[1][1] = 1.0;
-        Array[0][1] = Array[1][0] = 0.0;
+    public IYoonMatrix unit() {
+        array[0][0] = array[1][1] = 1.0;
+        array[0][1] = array[1][0] = 0.0;
         return this;
     }
 
-    public IYoonMatrix Add(IYoonMatrix pObject) {
+    public IYoonMatrix add(IYoonMatrix pObject) {
         YoonMatrix2X2Double m = new YoonMatrix2X2Double();
         YoonMatrix2X2Double pMatrix = (YoonMatrix2X2Double) pObject;
-        for (int i = 0; i < m.GetLength(); i++) {
-            for (int j = 0; j < m.GetLength(); j++) {
-                m.Array[i][j] = Array[i][j] + pMatrix.Array[i][j];
+        for (int i = 0; i < m.getLength(); i++) {
+            for (int j = 0; j < m.getLength(); j++) {
+                m.array[i][j] = array[i][j] + pMatrix.array[i][j];
             }
         }
         return m;
     }
 
-    public IYoonMatrix Substract(IYoonMatrix pObject) {
+    public IYoonMatrix substract(IYoonMatrix pObject) {
         YoonMatrix2X2Double m = new YoonMatrix2X2Double();
         YoonMatrix2X2Double pMatrix = (YoonMatrix2X2Double) pObject;
-        for (int i = 0; i < m.GetLength(); i++) {
-            for (int j = 0; j < m.GetLength(); j++) {
-                m.Array[i][j] = Array[i][j] - pMatrix.Array[i][j];
+        for (int i = 0; i < m.getLength(); i++) {
+            for (int j = 0; j < m.getLength(); j++) {
+                m.array[i][j] = array[i][j] - pMatrix.array[i][j];
             }
         }
         return m;
     }
 
-    public IYoonMatrix Multiple(Double dValue) {
+    public IYoonMatrix multiple(Double dValue) {
         YoonMatrix2X2Double m = new YoonMatrix2X2Double();
-        for (int i = 0; i < m.GetLength(); i++) {
-            for (int j = 0; j < m.GetLength(); j++) {
-                m.Array[i][j] = dValue * Array[i][j];
+        for (int i = 0; i < m.getLength(); i++) {
+            for (int j = 0; j < m.getLength(); j++) {
+                m.array[i][j] = dValue * array[i][j];
             }
         }
         return m;
     }
 
-    public YoonMatrix2X2Double Multiple(IYoonMatrix pObject) {
+    public YoonMatrix2X2Double multiple(IYoonMatrix pObject) {
         YoonMatrix2X2Double m = new YoonMatrix2X2Double();
         YoonMatrix2X2Double pMatrix = (YoonMatrix2X2Double) pObject;
-        for (int i = 0; i < m.GetLength(); i++) {
-            for (int j = 0; j < m.GetLength(); j++) {
-                m.Array[i][j] = 0;
-                for (int kValue = 0; kValue < m.GetLength(); kValue++)
-                    m.Array[i][j] += (Array[i][kValue] * pMatrix.Array[kValue][j]);
+        for (int i = 0; i < m.getLength(); i++) {
+            for (int j = 0; j < m.getLength(); j++) {
+                m.array[i][j] = 0;
+                for (int kValue = 0; kValue < m.getLength(); kValue++)
+                    m.array[i][j] += (array[i][kValue] * pMatrix.array[kValue][j]);
             }
         }
         return m;
     }
 
-    public YoonMatrix2X2Double Divide(Double dValue) {
+    public YoonMatrix2X2Double divide(Double dValue) {
         YoonMatrix2X2Double m = new YoonMatrix2X2Double();
-        for (int i = 0; i < m.GetLength(); i++) {
-            for (int j = 0; j < m.GetLength(); j++) {
-                m.Array[i][j] = Array[i][j] / dValue;
+        for (int i = 0; i < m.getLength(); i++) {
+            for (int j = 0; j < m.getLength(); j++) {
+                m.array[i][j] = array[i][j] / dValue;
             }
         }
         return m;

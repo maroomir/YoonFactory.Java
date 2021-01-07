@@ -2,39 +2,39 @@ package YoonCommon;
 
 public class YoonMatrix2D extends YoonMatrix3X3Double implements IYoonMatrix2D<Double>{
 
-    public IYoonMatrix SetScaleUnit(Double sx, Double sy)
+    public IYoonMatrix setScaleUnit(Double sx, Double sy)
     {
-        Unit();
-        Array[0][0] *= sx;
-        Array[1][1] *= sy;
+        unit();
+        array[0][0] *= sx;
+        array[1][1] *= sy;
         return this;
     }
 
-    public IYoonMatrix SetMovementUnit(Double dx, Double dy)
+    public IYoonMatrix setMovementUnit(Double dx, Double dy)
     {
-        Unit();
-        Array[0][2] += dx;
-        Array[1][2] += dy;
+        unit();
+        array[0][2] += dx;
+        array[1][2] += dy;
         return this;
     }
 
-    public IYoonMatrix SetMovementUnit(IYoonVector2D<Double> vec)
+    public IYoonMatrix setMovementUnit(IYoonVector2D<Double> vec)
     {
-        Unit();
-        Array[0][2] += vec.GetX();
-        Array[1][2] += vec.GetY();
+        unit();
+        array[0][2] += vec.getX();
+        array[1][2] += vec.getY();
         return this;
     }
 
-    public IYoonMatrix SetRotateUnit(double dAngle)
+    public IYoonMatrix setRotateUnit(double dAngle)
     {
-        Unit();
+        unit();
         double cosT = Math.cos(dAngle);
         double sinT = Math.sin(dAngle);
-        Array[0][0] = cosT;
-        Array[0][1] = -sinT;
-        Array[1][0] = sinT;
-        Array[1][1] = cosT;
+        array[0][0] = cosT;
+        array[0][1] = -sinT;
+        array[1][0] = sinT;
+        array[1][1] = cosT;
         return this;
     }
 }

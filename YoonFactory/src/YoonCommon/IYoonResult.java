@@ -2,9 +2,7 @@ package YoonCommon;
 
 public interface IYoonResult {
 
-    boolean IsEqual(IYoonResult pResult);
+    boolean isEqual(IYoonResult pResult);
 
-    void CopyFrom(IYoonResult pResult);
-
-    IYoonResult Clone();
+    void copyFrom(IYoonResult pResult);
 }

@@ -1,31 +1,29 @@
 package YoonCommon;
 
 public interface IYoonVector<T> {
-    int GetCount();
+    int getCount();
 
-    IYoonVector Clone();
+    void copyFrom(IYoonVector pVector);
 
-    void CopyFrom(IYoonVector pVector);
+    void zero();
 
-    void Zero();
+    IYoonVector unit();
 
-    IYoonVector Unit();
+    IYoonVector reverse();
 
-    IYoonVector Reverse();
+    double length();
 
-    double Length();
+    double distance(IYoonVector pVector);
 
-    double Distance(IYoonVector pVector);
+    IYoonVector add(IYoonVector pObject);
 
-    IYoonVector Add(IYoonVector pObject);
+    IYoonVector substract(IYoonVector pObject);
 
-    IYoonVector Substract(IYoonVector pObject);
+    IYoonVector multiple(T value);
 
-    IYoonVector Multiple(T value);
+    IYoonVector multiple(IYoonMatrix pObject);
 
-    IYoonVector Multiple(IYoonMatrix pObject);
+    T multiple(IYoonVector pObject);
 
-    T Multiple(IYoonVector pObject);
-
-    IYoonVector Divide(T value);
+    IYoonVector divide(T value);
 }

@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import YoonCommon.eYoonStatus;
 
-public class ShowMessageEventHandler {
+class ShowMessageEventHandler {
 
     private static final int MAX_THREAD_POOL = 5;
 
@@ -47,7 +47,7 @@ public class ShowMessageEventHandler {
                 @Override
                 public void run() {
                     if (!listener.getClass().getName().equals(caller.getName())) {
-                        listener.OnEvent(nStatus, strMessage);
+                        listener.onEvent(nStatus, strMessage);
                     }
                 }
             });
@@ -58,7 +58,7 @@ public class ShowMessageEventHandler {
     private static synchronized void CallEventBySync(final Class<?> caller, final eYoonStatus nStatus, final String strMessage) {
         for (final IShowMessageEventListener listener : m_pListListener) {
             if (!listener.getClass().getName().equals(caller.getName())) {
-                listener.OnEvent(nStatus, strMessage);
+                listener.onEvent(nStatus, strMessage);
             }
         }
     }

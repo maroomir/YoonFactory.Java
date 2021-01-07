@@ -1,21 +1,19 @@
 package YoonCommon;
 
 public interface IYoonTriangle<T> {
-    T GetX();
+    T getX();
 
-    T SetX(T x);
+    T setX(T x);
 
-    T GetY();
+    T getY();
 
-    T SetY(T y);
+    T setY(T y);
 
-    T GetHeight();
+    T getHeight();
 
-    T SetHeight(T height);
+    T setHeight(T height);
 
-    T Area();
+    T area();
 
-    IYoonTriangle Clone();
-
-    void CopyFrom(IYoonTriangle pTriangle);
+    void copyFrom(IYoonTriangle pTriangle);
 }

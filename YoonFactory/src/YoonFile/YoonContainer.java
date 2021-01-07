@@ -11,27 +11,27 @@ public class YoonContainer implements IYoonContainer<YoonParameter> {
     private Map<String, YoonParameter> m_pMapObject;
 
     @Override
-    public String GetRootDirectory() {
+    public String getRootDirectory() {
         return m_strDirRoot;
     }
 
     @Override
-    public void SetRootDirectory(String strDir) {
+    public void setRootDirectory(String strDir) {
         m_strDirRoot = strDir;
     }
 
     @Override
-    public void CopyFrom(IYoonContainer pContainer) {
+    public void copyFrom(IYoonContainer pContainer) {
         if (pContainer instanceof YoonContainer) {
             YoonContainer pParamContainer = (YoonContainer) pContainer;
             m_pMapObject.clear();
             m_strDirRoot = pParamContainer.m_strDirRoot;
-            m_pMapObject = new HashMap<>(pParamContainer.GetObjectMap());
+            m_pMapObject = new HashMap<>(pParamContainer.getObjectMap());
         }
     }
 
     @Override
-    public IYoonContainer Clone() {
+    public IYoonContainer clone() {
         YoonContainer pContainer = new YoonContainer(m_pMapObject);
         pContainer.m_strDirRoot = m_strDirRoot;
         return pContainer;
@@ -48,40 +48,40 @@ public class YoonContainer implements IYoonContainer<YoonParameter> {
     }
 
     @Override
-    public void Clear() {
+    public void clear() {
         m_pMapObject.clear();
     }
 
     @Override
-    public boolean LoadValue(String strKey) {
+    public boolean loadValue(String strKey) {
         if (m_strDirRoot == "" || strKey == "")
             return false;
         YoonParameter pParam = m_pMapObject.get(strKey);
         pParam.RootDirectory = m_strDirRoot;
         if (!m_pMapObject.containsKey(strKey))
             m_pMapObject.put(strKey, new YoonParameter());
-        if (pParam.LoadParameter(strKey, true)) {
+        if (pParam.loadParameter(strKey, true)) {
             m_pMapObject.replace(strKey, pParam);
             return true;
         } else return false;
     }
 
     @Override
-    public boolean SaveValue(String strKey) {
+    public boolean saveValue(String strKey) {
         if (m_strDirRoot == "" || strKey == "" || !m_pMapObject.containsKey(strKey))
             return false;
         YoonParameter pParam = m_pMapObject.get(strKey);
         pParam.RootDirectory = m_strDirRoot;
-        return pParam.SaveParameter(strKey);
+        return pParam.saveParameter(strKey);
     }
 
     @Override
-    public Map<String, YoonParameter> GetObjectMap() {
+    public Map<String, YoonParameter> getObjectMap() {
         return m_pMapObject;
     }
 
     @Override
-    public boolean Add(String strKey, YoonParameter pValue) {
+    public boolean add(String strKey, YoonParameter pValue) {
         try {
             m_pMapObject.put(strKey, pValue);
             return true;
@@ -91,21 +91,21 @@ public class YoonContainer implements IYoonContainer<YoonParameter> {
     }
 
     @Override
-    public boolean Remove(String strKey) {
+    public boolean remove(String strKey) {
         return m_pMapObject.remove(strKey, m_pMapObject.get(strKey));
     }
 
     @Override
-    public String GetKey(YoonParameter pParam) {
+    public String getKey(YoonParameter pParam) {
         for (String strKey : m_pMapObject.keySet()) {
-            if (pParam.Parameter.IsEqual(m_pMapObject.get(strKey).Parameter))
+            if (pParam.Parameter.isEqual(m_pMapObject.get(strKey).Parameter))
                 return strKey;
         }
         return "";
     }
 
     @Override
-    public YoonParameter GetValue(String strKey) {
+    public YoonParameter getValue(String strKey) {
         if (m_pMapObject.containsKey(strKey))
             return m_pMapObject.get(strKey);
         else
@@ -113,7 +113,7 @@ public class YoonContainer implements IYoonContainer<YoonParameter> {
     }
 
     @Override
-    public void SetValue(String strKey, YoonParameter pValue) {
+    public void setValue(String strKey, YoonParameter pValue) {
         if (m_pMapObject.containsKey(strKey))
             m_pMapObject.replace(strKey, pValue);
         else

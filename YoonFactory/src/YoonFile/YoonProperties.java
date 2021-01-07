@@ -11,7 +11,7 @@ public class YoonProperties implements IYoonFile {
     private String m_strFilePath;
 
     @Override
-    public String GetFilePath() {
+    public String getFilePath() {
         return m_strFilePath;
     }
 
@@ -20,26 +20,26 @@ public class YoonProperties implements IYoonFile {
     }
 
     @Override
-    public void CopyFrom(IYoonFile pFile) {
+    public void copyFrom(IYoonFile pFile) {
         if (pFile instanceof YoonProperties) {
             YoonProperties pProperties = (YoonProperties) pFile;
-            m_strFilePath = pProperties.GetFilePath();
+            m_strFilePath = pProperties.getFilePath();
         }
     }
 
     @Override
-    public IYoonFile Clone() {
+    public IYoonFile clone() {
         return new YoonProperties(m_strFilePath);
     }
 
     @Override
-    public boolean IsFileExist() {
+    public boolean isFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
         return FileFactory.VerifyFileExtension(refStrPath, "properties", false, false);
     }
 
-    public String GetValue(String strKey) {
-        if (!IsFileExist()) return null;
+    public String getValue(String strKey) {
+        if (!isFileExist()) return null;
         try {
             Properties pProp = new Properties();
             pProp.load(new FileInputStream(m_strFilePath));
@@ -52,8 +52,8 @@ public class YoonProperties implements IYoonFile {
         return null;
     }
 
-    public boolean SetValue(String strKey, String strValue) {
-        if (!IsFileExist()) return false;
+    public boolean setValue(String strKey, String strValue) {
+        if (!isFileExist()) return false;
         try {
             Properties pProp = new Properties();
             pProp.setProperty(strKey, strValue);

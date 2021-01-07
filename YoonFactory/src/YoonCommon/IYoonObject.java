@@ -1,15 +1,13 @@
 package YoonCommon;
 
 public interface IYoonObject {
-    int GetLabelNo();
+    int getLabelNo();
 
-    void SetLabelNo(int nNo);
+    void setLabelNo(int nNo);
 
-    double GetScore();
+    double getScore();
 
-    void SetScore(double dScore);
+    void setScore(double dScore);
 
-    void CopyFrom(IYoonObject pObject);
-
-    IYoonObject Clone();
+    void copyFrom(IYoonObject pObject);
 }

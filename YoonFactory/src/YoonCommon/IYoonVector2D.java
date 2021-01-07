@@ -2,25 +2,25 @@ package YoonCommon;
 
 
 public interface IYoonVector2D<T> extends IYoonVector<T>{
-    T GetW();
+    T getW();
 
-    void SetW(T w);
+    void setW(T w);
 
-    T GetX();
+    T getX();
 
-    void SetX(T x);
+    void setX(T x);
 
-    T GetY();
+    T getY();
 
-    void SetY(T y);
+    void setY(T y);
 
-    IYoonVector Scale(T sx, T sy);
+    IYoonVector scale(T sx, T sy);
 
-    IYoonVector Move(T dx, T dy);
+    IYoonVector move(T dx, T dy);
 
-    IYoonVector Move(IYoonVector pVector);
+    IYoonVector move(IYoonVector pVector);
 
-    IYoonVector Rotate(double dAngle);
+    IYoonVector rotate(double dAngle);
 
-    IYoonVector Rotate(IYoonVector pVecCenter, double dAngle);
+    IYoonVector rotate(IYoonVector pVecCenter, double dAngle);
 }

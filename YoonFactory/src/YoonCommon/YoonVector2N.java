@@ -4,81 +4,81 @@ public class YoonVector2N implements IYoonVector<Integer>, IYoonVector2D<Integer
 
     public int[] Array = new int[3];
 
-    public int GetCount() {
+    public int getCount() {
         return 3;
     }
 
-    public void CopyFrom(IYoonVector pVector) {
+    public void copyFrom(IYoonVector pVector) {
         if (pVector instanceof YoonVector2N) {
             YoonVector2N vec = (YoonVector2N) pVector;
-            SetX(vec.GetX());
-            SetY(vec.GetY());
-            SetW(1);
+            setX(vec.getX());
+            setY(vec.getY());
+            setW(1);
         }
     }
 
-    public IYoonVector Clone() {
+    public IYoonVector clone() {
         YoonVector2N v = new YoonVector2N();
-        v.SetX(GetX());
-        v.SetY(GetY());
-        v.SetW(GetW());
+        v.setX(getX());
+        v.setY(getY());
+        v.setW(getW());
         return v;
     }
 
     private static double DELTA = 0.0000000000001;
 
-    public Integer GetW() {
+    public Integer getW() {
         return Array[2];
     }
 
-    public void SetW(Integer value) {
+    public void setW(Integer value) {
         Array[2] = value;
     }
 
-    public Integer GetX() {
+    public Integer getX() {
         return Array[0];
     }
 
-    public void SetX(Integer value) {
+    public void setX(Integer value) {
         Array[0] = value;
     }
 
-    public Integer GetY() {
+    public Integer getY() {
         return Array[1];
     }
 
-    public void SetY(Integer value) {
+    public void setY(Integer value) {
         Array[1] = value;
     }
 
     public YoonVector2N() {
-        SetX(0);
-        SetY(0);
-        SetW(1);
+        setX(0);
+        setY(0);
+        setW(1);
     }
 
     public YoonVector2N(IYoonVector p) {
-        CopyFrom(p);
+        copyFrom(p);
     }
 
     public YoonVector2N(int dx, int dy) {
-        SetX(dx);
-        SetY(dy);
-        SetW(1);
+        setX(dx);
+        setY(dy);
+        setW(1);
     }
 
-    public void Zero() {
-        SetX(0);
-        SetY(0);
-        SetW(1);
+    public void zero() {
+        setX(0);
+        setY(0);
+        setW(1);
     }
 
-    public double Length() {
-        return Math.sqrt(GetX() * GetX() + GetY() * GetY());
+    public double length() {
+        return Math.sqrt(getX() * getX() + getY() * getY());
     }
 
-    public IYoonVector Unit() {
-        double len = this.Length();
+    public IYoonVector unit() {
+        double len = this.length();
         if (len > DELTA) {
             len = 1.0 / len;
             Array[0] *= (int) len;
@@ -87,111 +87,111 @@ public class YoonVector2N implements IYoonVector<Integer>, IYoonVector2D<Integer
         return this;
     }
 
-    public IYoonVector Reverse() {
-        return new YoonVector2N(-GetX(), -GetY());
+    public IYoonVector reverse() {
+        return new YoonVector2N(-getX(), -getY());
     }
 
-    public double Distance(IYoonVector pVector) {
+    public double distance(IYoonVector pVector) {
         if (pVector instanceof YoonVector2N) {
             YoonVector2N vec = (YoonVector2N) pVector;
-            double dx = GetX() - vec.GetX();
-            double dy = GetY() - vec.GetY();
+            double dx = getX() - vec.getX();
+            double dy = getY() - vec.getY();
             return Math.sqrt(dx * dx + dy * dy);
         } else
             return 0.0;
     }
 
-    public IYoonVector Scale(Integer sx, Integer sy) {
+    public IYoonVector scale(Integer sx, Integer sy) {
         YoonMatrix2N pMatrix = new YoonMatrix2N();
-        pMatrix.SetScaleUnit(sx, sy);
-        YoonVector2N vec = (YoonVector2N) Multiple(pMatrix);
-        SetX(vec.GetX());
-        SetY(vec.GetY());
+        pMatrix.setScaleUnit(sx, sy);
+        YoonVector2N vec = (YoonVector2N) multiple(pMatrix);
+        setX(vec.getX());
+        setY(vec.getY());
         return this;
     }
 
-    public IYoonVector Move(Integer dx, Integer dy) {
+    public IYoonVector move(Integer dx, Integer dy) {
         YoonMatrix2N pMatrix = new YoonMatrix2N();
-        pMatrix.SetMovementUnit(dx, dy);
-        YoonVector2N vec = (YoonVector2N) Multiple(pMatrix);
-        SetX(vec.GetX());
-        SetY(vec.GetY());
+        pMatrix.setMovementUnit(dx, dy);
+        YoonVector2N vec = (YoonVector2N) multiple(pMatrix);
+        setX(vec.getX());
+        setY(vec.getY());
         return this;
     }
 
-    public IYoonVector Move(IYoonVector pObject) {
+    public IYoonVector move(IYoonVector pObject) {
         if (pObject instanceof YoonVector2N) {
             YoonVector2N pVector = (YoonVector2N) pObject;
             YoonMatrix2N pMatrix = new YoonMatrix2N();
-            pMatrix.SetMovementUnit(pVector);
-            YoonVector2N vec = (YoonVector2N) Multiple(pMatrix);
-            SetX(vec.GetX());
-            SetY(vec.GetY());
+            pMatrix.setMovementUnit(pVector);
+            YoonVector2N vec = (YoonVector2N) multiple(pMatrix);
+            setX(vec.getX());
+            setY(vec.getY());
         }
         return this;
     }
 
-    public IYoonVector Rotate(double angle) {
+    public IYoonVector rotate(double angle) {
         YoonMatrix2N pMatrix = new YoonMatrix2N();
-        pMatrix.SetRotateUnit(angle);
-        YoonVector2N vec = (YoonVector2N) Multiple(pMatrix);
-        SetX(vec.GetX());
-        SetY(vec.GetY());
+        pMatrix.setRotateUnit(angle);
+        YoonVector2N vec = (YoonVector2N) multiple(pMatrix);
+        setX(vec.getX());
+        setY(vec.getY());
         return this;
     }
 
-    public IYoonVector Rotate(IYoonVector center, double angle) {
+    public IYoonVector rotate(IYoonVector center, double angle) {
         if (center instanceof YoonVector2N) {
             YoonVector2N pVecCenter = (YoonVector2N) center;
-            Move(pVecCenter.Reverse());
-            Rotate(angle);
-            Move(pVecCenter);
+            move(pVecCenter.reverse());
+            rotate(angle);
+            move(pVecCenter);
         }
         return this;
     }
 
-    public IYoonVector Multiple(IYoonMatrix pObject) {
+    public IYoonVector multiple(IYoonMatrix pObject) {
         YoonVector2N pVector = new YoonVector2N();
         if (pObject instanceof YoonMatrix3X3Int) {
             YoonMatrix3X3Int pMatrix = (YoonMatrix3X3Int) pObject;
-            for (int i = 0; i < GetCount(); i++) {
+            for (int i = 0; i < getCount(); i++) {
                 pVector.Array[i] = 0;
-                for (int k = 0; k < pMatrix.GetLength(); k++)
+                for (int k = 0; k < pMatrix.getLength(); k++)
                     pVector.Array[i] += pMatrix.Array[i][k] * Array[k];
             }
         }
         return pVector;
     }
 
-    public IYoonVector Multiple(Integer value) {
-        return new YoonVector2N(GetX() * value, GetY() * value);
+    public IYoonVector multiple(Integer value) {
+        return new YoonVector2N(getX() * value, getY() * value);
     }
 
-    public IYoonVector Add(IYoonVector pObject) {
+    public IYoonVector add(IYoonVector pObject) {
         if (pObject instanceof YoonVector2N) {
             YoonVector2N pVector = (YoonVector2N) pObject;
-            return new YoonVector2N(GetX() + pVector.GetX(), GetY() + pVector.GetY());
+            return new YoonVector2N(getX() + pVector.getX(), getY() + pVector.getY());
         } else
             return new YoonVector2N();
     }
 
-    public IYoonVector Substract(IYoonVector pObject) {
+    public IYoonVector substract(IYoonVector pObject) {
         if (pObject instanceof YoonVector2N) {
             YoonVector2N pVector = (YoonVector2N) pObject;
-            return new YoonVector2N(GetX() - pVector.GetX(), GetY() - pVector.GetY());
+            return new YoonVector2N(getX() - pVector.getX(), getY() - pVector.getY());
         } else
             return new YoonVector2N();
     }
 
-    public IYoonVector Divide(Integer value) {
-        return new YoonVector2N(GetX() / value, GetY() / value);
+    public IYoonVector divide(Integer value) {
+        return new YoonVector2N(getX() / value, getY() / value);
     }
 
-    public Integer Multiple(IYoonVector pObject) // dot product
+    public Integer multiple(IYoonVector pObject) // dot product
     {
         if (pObject instanceof YoonVector2N) {
             YoonVector2N pVector = (YoonVector2N) pObject;
-            return GetX() * pVector.GetX() + GetY() * pVector.GetY();
+            return getX() * pVector.getX() + getY() * pVector.getY();
         } else return 0;
     }
 }

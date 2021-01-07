@@ -1,31 +1,33 @@
 package YoonTcpIp;
 
 public interface IYoonTcpIp {
-    String GetAddress();
+    String getAddress();
 
-    void SetAddress(String strAddress);
+    void setAddress(String strAddress);
 
-    int GetPort();
+    int getPort();
 
-    void SetPort(int nPort);
+    void setPort(int nPort);
 
-    boolean GetIsRetryOpen();
+    int getRetryCount();
 
-    boolean GetIsSend();
+    int getTimeout();
 
-    boolean GetIsConnected();
+    boolean isRetryOpen();
 
-    StringBuilder GetReceiveMessage();
+    boolean isSend();
 
-    void CopyFrom(IYoonTcpIp pTcpIp);
+    boolean isConnected();
 
-    IYoonTcpIp Clone();
+    StringBuilder getReceiveMessage();
 
-    boolean Send(String strBuffer);
+    void copyFrom(IYoonTcpIp pTcpIp);
 
-    boolean Send(byte[] pBuffer);
+    boolean send(String strBuffer);
 
-    boolean Open();
+    boolean send(byte[] pBuffer);
 
-    void Close();
+    boolean open();
+
+    void close();
 }

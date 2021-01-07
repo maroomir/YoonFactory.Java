@@ -11,7 +11,7 @@ public class YoonJson implements IYoonFile {
     private String m_strFilePath;
 
     @Override
-    public String GetFilePath() {
+    public String getFilePath() {
         return m_strFilePath;
     }
 
@@ -20,26 +20,26 @@ public class YoonJson implements IYoonFile {
     }
 
     @Override
-    public void CopyFrom(IYoonFile pFile) {
+    public void copyFrom(IYoonFile pFile) {
         if (pFile instanceof YoonJson) {
             YoonJson pJson = (YoonJson) pFile;
-            m_strFilePath = pJson.GetFilePath();
+            m_strFilePath = pJson.getFilePath();
         }
     }
 
     @Override
-    public IYoonFile Clone() {
+    public IYoonFile clone() {
         return new YoonJson(m_strFilePath);
     }
 
     @Override
-    public boolean IsFileExist() {
+    public boolean isFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
         return FileFactory.VerifyFileExtension(refStrPath, "json", false, false);
     }
 
-    public Object LoadFile(Type pType) {
-        if (!IsFileExist()) return null;
+    public Object loadFile(Type pType) {
+        if (!isFileExist()) return null;
         try {
             Gson pGson = new Gson();
             FileReader pReader = new FileReader(m_strFilePath);
@@ -50,8 +50,8 @@ public class YoonJson implements IYoonFile {
         return null;
     }
 
-    public boolean SaveFile(Object pObject, Type pType) {
-        if (!IsFileExist()) return false;
+    public boolean saveFile(Object pObject, Type pType) {
+        if (!isFileExist()) return false;
         try {
             Gson pGson = new Gson();
             String strJsonData = pGson.toJson(pObject, pType);

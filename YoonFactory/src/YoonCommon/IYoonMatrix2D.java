@@ -1,11 +1,11 @@
 package YoonCommon;
 
 public interface  IYoonMatrix2D<T> extends IYoonMatrix<T> {
-    IYoonMatrix SetScaleUnit(T sx, T sy);
+    IYoonMatrix setScaleUnit(T sx, T sy);
 
-    IYoonMatrix SetMovementUnit(T dx, T dy);
+    IYoonMatrix setMovementUnit(T dx, T dy);
 
-    IYoonMatrix SetMovementUnit(IYoonVector2D<T> pVector);
+    IYoonMatrix setMovementUnit(IYoonVector2D<T> pVector);
 
-    IYoonMatrix SetRotateUnit(double dAngle);
+    IYoonMatrix setRotateUnit(double dAngle);
 }

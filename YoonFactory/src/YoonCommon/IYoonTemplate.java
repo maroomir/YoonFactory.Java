@@ -1,15 +1,13 @@
 package YoonCommon;
 
 public interface IYoonTemplate {
-    void CopyFrom(IYoonTemplate pTemplate);
+    void copyFrom(IYoonTemplate pTemplate);
 
-    IYoonTemplate Clone();
+    boolean saveTemplate();
 
-    boolean SaveTemplate();
+    boolean loadTemplate();
 
-    boolean LoadTemplate();
+    IYoonContainer getContainer();
 
-    IYoonContainer GetContainer();
-
-    void SetContainer(IYoonContainer pContainer);
+    void setContainer(IYoonContainer pContainer);
 }

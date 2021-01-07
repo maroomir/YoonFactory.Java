@@ -19,15 +19,15 @@ public class YoonXml implements IYoonFile {
     private String m_strFilePath;
 
     @Override
-    public String GetFilePath() {
+    public String getFilePath() {
         return m_strFilePath;
     }
 
     @Override
-    public void CopyFrom(IYoonFile pFile) {
+    public void copyFrom(IYoonFile pFile) {
         if (pFile instanceof YoonXml) {
             YoonXml pXml = (YoonXml) pFile;
-            m_strFilePath = pXml.GetFilePath();
+            m_strFilePath = pXml.getFilePath();
         }
     }
 
@@ -36,18 +36,18 @@ public class YoonXml implements IYoonFile {
     }
 
     @Override
-    public IYoonFile Clone() {
+    public IYoonFile clone() {
         return new YoonXml(m_strFilePath);
     }
 
     @Override
-    public boolean IsFileExist() {
+    public boolean isFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
         return FileFactory.VerifyFileExtension(refStrPath, "xml", false, false);
     }
 
-    public Document LoadFile() throws IOException {
-        if (!IsFileExist()) return null;
+    public Document loadFile() throws IOException {
+        if (!isFileExist()) return null;
         FileInputStream pStream = null;
         try {
             //// Parsing XML to Document
@@ -69,8 +69,8 @@ public class YoonXml implements IYoonFile {
         return null;
     }
 
-    public boolean SaveFile(Document pDocXml) throws IOException {
-        if (!IsFileExist()) return false;
+    public boolean saveFile(Document pDocXml) throws IOException {
+        if (!isFileExist()) return false;
         FileOutputStream pStream = null;
         try {
             pStream = new FileOutputStream(new File(m_strFilePath), false);
