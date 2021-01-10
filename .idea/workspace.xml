@@ -6,18 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Optimize in JavaSDK 15">
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IReceiveMessageEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IRetryOpenEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_5_2021_8_12_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_5_2021_8_12_PM__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/ActiveServerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/ActiveTcpRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IShowMessageEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IShowMessageEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/ShowMessageEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonTcpEventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" afterDir="false" />
-    </list>
+    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Optimize in JavaSDK 15" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609144600495</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fixed the Language and roop-condition on YoonServer">
+      <created>1610293100097</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610293100097</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +111,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Optimize in JavaSDK 15" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize in JavaSDK 15" />
+    <MESSAGE value="Fixed the Language and roop-condition on YoonServer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed the Language and roop-condition on YoonServer" />
   </component>
 </project>
