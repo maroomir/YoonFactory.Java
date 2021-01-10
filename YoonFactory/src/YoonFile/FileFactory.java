@@ -8,7 +8,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 class FileFactory {
 
-    public static boolean VerifyDirectory(String path) {
+    public static boolean verifyDirectory(String path) {
         File pDir = new File(path);
         if (pDir.isDirectory()) {
             if (!pDir.exists()) {
@@ -19,11 +19,11 @@ class FileFactory {
         return false;
     }
 
-    public static boolean VerifyFilePath(String path, Boolean bCreateFile) {
+    public static boolean verifyFilePath(String path, Boolean bCreateFile) {
         File pFile = new File(path);
         FileOutputStream pStream = null;
         if (pFile.isFile()) {
-            if (!VerifyDirectory(pFile.getParent())) return false;
+            if (!verifyDirectory(pFile.getParent())) return false;
             try {
                 if (!pFile.exists()) {
                     if (!bCreateFile) return false;
@@ -46,8 +46,8 @@ class FileFactory {
         return false;
     }
 
-    public static boolean VerifyFileExtension(AtomicReference<String> refPath, String strExt, boolean bChangeExtension, boolean bCreateFile) {
-        if (VerifyFilePath(refPath.get(), bCreateFile)) {
+    public static boolean verifyFileExtension(AtomicReference<String> refPath, String strExt, boolean bChangeExtension, boolean bCreateFile) {
+        if (verifyFilePath(refPath.get(), bCreateFile)) {
             int nExtPos = refPath.get().lastIndexOf(".");
             String strExtPath = refPath.get().substring(nExtPos + 1);
             String strFilePathWithoutExt = refPath.get().substring(0, nExtPos);
@@ -55,7 +55,7 @@ class FileFactory {
                 if (!bChangeExtension) return false;
                 File pFile = new File(refPath.get());
                 String strFilePath = strFilePathWithoutExt + strExtPath;
-                if (!VerifyFilePath(strFilePath, bCreateFile)) return false;
+                if (!verifyFilePath(strFilePath, bCreateFile)) return false;
                 refPath.set(strFilePath);
                 return true;
             } else
@@ -64,16 +64,16 @@ class FileFactory {
         return false;
     }
 
-    public static boolean IsFileExist(String path) {
+    public static boolean isFileExist(String path) {
         File pFile = new File(path);
         return pFile.exists();
     }
 
-    public static ArrayList<String> GetFileNamesInDirectory(String rootPath) {
+    public static ArrayList<String> getFileNamesInDirectory(String rootPath) {
         File pRootPath = new File(rootPath);
         ArrayList<String> pListFile = new ArrayList<>();
         if (pRootPath.isDirectory()) {
-            if (!VerifyDirectory(rootPath)) return pListFile;
+            if (!verifyDirectory(rootPath)) return pListFile;
             String[] pArrayFiles = pRootPath.list();
             if (pArrayFiles.length > 0) {
                 for (int iFile = 0; iFile < pArrayFiles.length; iFile++) {
@@ -86,7 +86,7 @@ class FileFactory {
         return pListFile;
     }
 
-    public static boolean SetTextToFile(String path, String data) {
+    public static boolean setTextToFile(String path, String data) {
         FileOutputStream pStream = null;
         try {
             pStream = new FileOutputStream(path, false);
@@ -107,7 +107,7 @@ class FileFactory {
         return false;
     }
 
-    public static boolean AppendTextToFile(String path, String data) {
+    public static boolean appendTextToFile(String path, String data) {
         FileOutputStream pStream = null;
         try {
             pStream = new FileOutputStream(path, true);
@@ -128,12 +128,12 @@ class FileFactory {
         return false;
     }
 
-    public static boolean DeleteFilePath(String filePath) {
+    public static boolean deleteFilePath(String filePath) {
         File pFile = new File(filePath);
         if (pFile.isFile()) {
             try {
 
-                if (!VerifyDirectory(pFile.getParent()))
+                if (!verifyDirectory(pFile.getParent()))
                     return false;
                 if (pFile.exists()) {
                     pFile.delete();
@@ -147,8 +147,8 @@ class FileFactory {
         return false;
     }
 
-    public static void DeleteExtensionFilesInDirectory(String dirPath, String strExt) {
-        if (!VerifyDirectory(dirPath)) {
+    public static void deleteExtensionFilesInDirectory(String dirPath, String strExt) {
+        if (!verifyDirectory(dirPath)) {
             File pDir = new File(dirPath);
             FilenameFilter pFilter = new FilenameFilter() {
                 @Override
@@ -163,8 +163,8 @@ class FileFactory {
         }
     }
 
-    public static void DeleteAllFilesInDirectory(String dirPath) {
-        if (!VerifyDirectory(dirPath)) {
+    public static void deleteAllFilesInDirectory(String dirPath) {
+        if (!verifyDirectory(dirPath)) {
             File pDir = new File(dirPath);
             try {
                 while (pDir.exists()) {

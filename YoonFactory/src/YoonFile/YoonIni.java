@@ -36,7 +36,7 @@ public class YoonIni implements IYoonFile {
     @Override
     public boolean isFileExist() {
         AtomicReference<String> refStrPath = new AtomicReference<>(m_strFilePath);
-        return FileFactory.VerifyFileExtension(refStrPath, "ini", false, false);
+        return FileFactory.verifyFileExtension(refStrPath, "ini", false, false);
     }
 
     public String getValue(String strSection, String strKey) {

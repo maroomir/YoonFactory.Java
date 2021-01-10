@@ -3,5 +3,5 @@ package YoonTcpIp;
 import YoonCommon.eYoonStatus;
 
 public interface IShowMessageEventListener {
-    public void onEvent(eYoonStatus nStatus, String strMessage);
+    public void onShowMessageEvent(eYoonStatus nStatus, String strMessage);
 }

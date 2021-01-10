@@ -8,18 +8,15 @@ import java.net.ServerSocket;
 class RetryServerRunnable implements Runnable {
 
     private StopWatch m_pStopWatch = new StopWatch();
-    private YoonServer Parents = null;
     private ServerSocket m_serverSocket = null;
     private int m_nRetryCount = 100;
     private int m_nTimeout = 1000;
     private boolean m_bRetryOpen = false;
 
-    public RetryServerRunnable(YoonServer pParants, ServerSocket pServerSocket) throws Exception {
-        Parents = pParants;
-        if (Parents == null) throw new Exception();
-        m_nRetryCount = pParants.getRetryCount();
-        m_nTimeout = pParants.getTimeout();
+    public RetryServerRunnable(ServerSocket pServerSocket, int nRetryCount, int nTimeout) {
         m_serverSocket = pServerSocket;
+        m_nRetryCount = nRetryCount;
+        m_nTimeout = nTimeout;
     }
 
     public void setRetryOpen(boolean bRetryOpen) {
@@ -28,10 +25,10 @@ class RetryServerRunnable implements Runnable {
 
     @Override
     public void run() {
-        if (Parents == null || m_serverSocket == null) return;
+        if (m_serverSocket == null) return;
         m_pStopWatch.stop();
         m_pStopWatch.start();
-        ShowMessageEventHandler.CallEvent(RetryServerRunnable.class, eYoonStatus.Info, "Retry Server Start");
+        YoonTcpEventHandler.callShowMessageEvent(RetryServerRunnable.class, eYoonStatus.Info, "Retry Server Start");
         try {
             for (int iRetry = 0; iRetry < m_nRetryCount; iRetry++) {
                 //// Error : Timeout
@@ -43,26 +40,26 @@ class RetryServerRunnable implements Runnable {
                 ////  Success to connect
                 if (m_serverSocket != null) {
                     if (m_serverSocket.isBound() == true) {
-                        ShowMessageEventHandler.CallEvent(RetryServerRunnable.class, eYoonStatus.Info, "Listen Retry Success");
+                        YoonTcpEventHandler.callShowMessageEvent(RetryServerRunnable.class, eYoonStatus.Info, "Listen Retry Success");
                         m_bRetryOpen = false;
                         break;
                     }
                 }
-                Parents.ListenAndConnect();
+                YoonTcpEventHandler.callRetryOpenEvent(RetryServerRunnable.class);
             }
             m_pStopWatch.stop();
 
             if (m_serverSocket == null) {
-                ShowMessageEventHandler.CallEvent(RetryServerRunnable.class, eYoonStatus.Error, "Listen Retry Failure : Listen Socket Empty");
+                YoonTcpEventHandler.callShowMessageEvent(RetryServerRunnable.class, eYoonStatus.Error, "Listen Retry Failure : Listen Socket Empty");
                 return;
             }
             if (m_serverSocket.isBound() == false) {
-                ShowMessageEventHandler.CallEvent(RetryServerRunnable.class, eYoonStatus.Error, "Listen Retry Failure : Connection Fail");
+                YoonTcpEventHandler.callShowMessageEvent(RetryServerRunnable.class, eYoonStatus.Error, "Listen Retry Failure : Connection Fail");
             }
         } catch (IllegalStateException e) {
             e.printStackTrace();
         } finally {
-            ShowMessageEventHandler.CallEvent(RetryServerRunnable.class, eYoonStatus.Info, "Retry Thread Exit");
+            YoonTcpEventHandler.callShowMessageEvent(RetryServerRunnable.class, eYoonStatus.Info, "Retry Thread Exit");
         }
     }
 }
