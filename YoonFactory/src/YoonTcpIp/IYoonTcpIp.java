@@ -30,4 +30,8 @@ public interface IYoonTcpIp {
     boolean open();
 
     void close();
+
+    void OnStartRetryThread();
+
+    void OnStopRetryThread();
 }

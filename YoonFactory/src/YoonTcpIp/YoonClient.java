@@ -3,11 +3,9 @@ package YoonTcpIp;
 import YoonCommon.eYoonStatus;
 
 import java.io.IOException;
-import java.net.InetSocketAddress;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.net.*;
 
-public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRetryOpenEventListener {
+public class YoonClient implements IYoonTcpIp, IReceiveMessageEventListener, IRetryOpenEventListener {
     private final int BUFFER_SIZE = 4096;
     private boolean m_bRetryOpen = false;
     private boolean m_bSend = false;
@@ -17,20 +15,17 @@ public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRe
     private int m_nBacklog = 5;
     private int m_nCountRetry = 10;
     private int m_nTimeout = 10000;
-    private ServerSocket m_serverSocket = null;
-    private Socket m_connectedClientSocket = null;
+    private Socket m_clientSocket = null;
 
-    public YoonServer() {
+    public YoonClient() {
         // Initialize Manageable Variable
         m_sbReceiveMessage = new StringBuilder("");
         // Event Subscription
-        YoonTcpEventHandler.addRetryOpenListener(this);
-        YoonTcpEventHandler.addReceiveMessageListener(this);
     }
 
     @Override
     public void onRetryOpenEvent() {
-        listenAndConnect();
+        connect();
     }
 
     @Override
@@ -79,15 +74,10 @@ public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRe
         return m_nTimeout;
     }
 
-    public boolean isBound() {
-        if (m_serverSocket == null) return false;
-        return m_serverSocket.isBound();
-    }
-
     @Override
     public boolean isConnected() {
-        if (m_connectedClientSocket == null) return false;
-        return m_connectedClientSocket.isConnected();
+        if (m_clientSocket == null) return false;
+        return m_clientSocket.isConnected();
     }
 
     @Override
@@ -97,117 +87,114 @@ public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRe
 
     @Override
     public void copyFrom(IYoonTcpIp pTcpIp) {
-        if (pTcpIp instanceof YoonServer) {
-            YoonServer pServer = (YoonServer) pTcpIp;
+        if (pTcpIp instanceof YoonClient) {
+            YoonClient pClient = (YoonClient) pTcpIp;
             close();
-            if (pServer.isConnected())
-                pServer.close();
-            m_nPort = pServer.getPort();
-            m_nCountRetry = pServer.getRetryCount();
-            m_nTimeout = pServer.getTimeout();
+            if (pClient.isConnected())
+                pClient.close();
+            m_strAddress = pClient.getAddress();
+            m_nPort = pClient.getPort();
+            m_nCountRetry = pClient.getRetryCount();
+            m_nTimeout = pClient.getTimeout();
         }
     }
 
     @Override
     public boolean open() {
-        return listenAndConnect();
+        return connect();
     }
 
-    public boolean listenAndConnect(int nPort) {
+    public boolean connect(String strAddress, int nPort) {
+        m_strAddress = strAddress;
         m_nPort = nPort;
-        return listenAndConnect();
+        return connect();
     }
 
     private Thread m_threadSocket = null;
     private ActiveTcpRunnable m_pRunnableSocket = null;
 
-    public boolean listenAndConnect() {
-        if (m_connectedClientSocket != null && m_connectedClientSocket.isConnected())
+    public boolean connect() {
+        if (m_clientSocket != null && m_clientSocket.isConnected() == true)
             return true;
         try {
-            //// Binding port and Listening per backlogging
-            if (m_serverSocket == null || !m_serverSocket.isBound()) {
-                m_serverSocket = new ServerSocket();
-                if (!isRetryOpen())
-                    YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Info, String.format("Listen Port : %d", m_nPort), false);
-                m_serverSocket.bind(new InetSocketAddress(m_nPort), m_nBacklog);
-                m_serverSocket.setReceiveBufferSize(BUFFER_SIZE);
-            }
-            //// Accept the connection socket
-            m_connectedClientSocket = m_serverSocket.accept();
-            m_pRunnableSocket = new ActiveTcpRunnable(m_connectedClientSocket);
+            m_clientSocket = new Socket();
+            if (!isRetryOpen())
+                YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, String.format("Connection Attempt : %s / %d", m_strAddress, m_nPort));
+            //// Connected port
+            m_clientSocket.connect(new InetSocketAddress(m_strAddress, m_nPort), m_nTimeout);
+            m_clientSocket.setReceiveBufferSize(BUFFER_SIZE);
+            m_pRunnableSocket = new ActiveTcpRunnable(m_clientSocket);
             m_threadSocket = new Thread(m_pRunnableSocket);
             m_threadSocket.start();
         } catch (IOException e) {
             e.printStackTrace();
-            YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, e.getMessage());
+            YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Error, e.getMessage());
             m_bRetryOpen = false;
-            if (m_serverSocket != null)
-                m_serverSocket = null;
+            if (m_clientSocket != null)
+                m_clientSocket = null;
             return false;
         }
-        if (m_serverSocket.isBound() && m_connectedClientSocket != null) {
-            YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Info, "Listen Success");
+        if (m_clientSocket.isConnected()) {
+            YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Connection Sucess");
             m_bRetryOpen = false;
-            return false;
         } else {
             if (!m_bRetryOpen)
-                YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Info, "Client Connection Failure");
+                YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Connection Failure");
             m_bRetryOpen = true;
-            return true;
         }
+        return m_clientSocket.isConnected();
     }
 
-    @Override
     public void close() {
         if (m_bRetryOpen)
             m_bRetryOpen = false;
-        YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Info, "Close Listen");
-        if (m_serverSocket == null)
+        YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Close Connection");
+        if (m_clientSocket == null)
             return;
         try {
             //// Stop Open Retry Thread
             OnStopRetryThread();
             //// Stop Active Tcp Thread
             m_pRunnableSocket.close();
-            if(m_threadSocket.isAlive())
+            if (m_threadSocket.isAlive())
                 m_threadSocket.interrupt();
             //// Close the Socket
-            m_serverSocket.close();
+            m_clientSocket.close();
             //// Remove the Event Listener
             YoonTcpEventHandler.removeReceiveMessageListener(this);
             YoonTcpEventHandler.removeRetryOpenListener(this);
+
         } catch (IOException e) {
             e.printStackTrace();
-            YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, e.getMessage());
+            YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Error, e.getMessage());
         }
-        m_serverSocket = null;
+        m_clientSocket = null;
     }
 
-    private Thread m_threadRetryListen = null;
+    private Thread m_threadRetryConnection = null;
 
     @Override
     public void OnStartRetryThread() {
         if (!m_bRetryOpen) return;
-        if (m_threadRetryListen != null && m_threadRetryListen.isAlive()) return;
-        m_threadRetryListen = new Thread(new RetryServerRunnable(m_serverSocket, m_nCountRetry, m_nTimeout));
-        m_threadRetryListen.setName("Retry Listen");
-        m_threadRetryListen.start();
+        if (m_threadRetryConnection != null && m_threadRetryConnection.isAlive()) return;
+        m_threadRetryConnection = new Thread(new RetryClientRunnable(m_clientSocket, m_nCountRetry, m_nTimeout));
+        m_threadRetryConnection.setName("Retry Connection");
+        m_threadRetryConnection.start();
     }
 
     @Override
     public void OnStopRetryThread() {
-        if (m_threadRetryListen == null) return;
-        if (m_threadRetryListen.isAlive())
-            m_threadRetryListen.interrupt();
-        m_threadRetryListen = null;
+        if (m_threadRetryConnection == null) return;
+        if (m_threadRetryConnection.isAlive())
+            m_threadRetryConnection.interrupt();
+        m_threadRetryConnection = null;
     }
 
     @Override
     public boolean send(String strBuffer) {
-        if (m_serverSocket == null || m_connectedClientSocket == null)
+        if (m_clientSocket == null)
             return false;
-        if (m_connectedClientSocket.isConnected() == false) {
+        if (m_clientSocket.isConnected() == false) {
             YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, "Send Failure : Connection Fail");
             return false;
         }
@@ -221,9 +208,9 @@ public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRe
 
     @Override
     public boolean send(byte[] pBuffer) {
-        if (m_serverSocket == null || m_connectedClientSocket == null)
+        if (m_clientSocket == null)
             return false;
-        if (m_connectedClientSocket.isConnected() == false) {
+        if (m_clientSocket.isConnected() == false) {
             YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, "Send Failure : Connection Fail");
             return false;
         }

@@ -5,8 +5,18 @@
       <artifact name="YoonFactory.Java:jar" />
     </artifacts-to-build>
   </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Optimize in JavaSDK 15" />
+    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Optimize in JavaSDK 15">
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryClientRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_5_2021_8_12_PM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_5_2021_8_12_PM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IYoonTcpIp.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/IYoonTcpIp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,9 +25,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,7 +60,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
