@@ -8,9 +8,9 @@ import java.net.Socket;
 class RetryClientRunnable implements Runnable {
 
     private StopWatch m_pStopWatch = new StopWatch();
-    private Socket m_clientSocket = null;
-    private int m_nRetryCount = 100;
-    private int m_nTimeout = 1000;
+    private Socket m_clientSocket;
+    private int m_nRetryCount;
+    private int m_nTimeout;
     private boolean m_bRetryOpen = false;
 
     public RetryClientRunnable(Socket pSocket, int nRetryCount, int nTimeout) {
@@ -39,7 +39,7 @@ class RetryClientRunnable implements Runnable {
                     break;
                 ////  Success to connect
                 if (m_clientSocket != null) {
-                    if (m_clientSocket.isConnected() == true) {
+                    if (m_clientSocket.isConnected()) {
                         YoonTcpEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Info, "Connection Retry Success");
                         m_bRetryOpen = false;
                         break;
@@ -53,7 +53,7 @@ class RetryClientRunnable implements Runnable {
                 YoonTcpEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Error, "Connection Retry Failure : Connection Socket Empty");
                 return;
             }
-            if (m_clientSocket.isConnected() == false) {
+            if (!m_clientSocket.isConnected()) {
                 YoonTcpEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Error, "Connection Retry Failure : Connection Fail");
             }
         } catch (IllegalStateException e) {

@@ -28,8 +28,8 @@ public class FileFactory {
                     if (!bCreateFile) return false;
                     pStream = new FileOutputStream(pFile);
                     pStream.close();
-                    return true;
-                } else return true;
+                }
+                return true;
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -50,13 +50,11 @@ public class FileFactory {
             String strFilePathWithoutExt = refPath.get().substring(0, nExtPos);
             if (!strExtPath.equals(strExt)) {
                 if (!bChangeExtension) return false;
-                File pFile = new File(refPath.get());
                 String strFilePath = strFilePathWithoutExt + strExtPath;
                 if (!verifyFilePath(strFilePath, bCreateFile)) return false;
                 refPath.set(strFilePath);
-                return true;
-            } else
-                return true;
+            }
+            return true;
         }
         return false;
     }

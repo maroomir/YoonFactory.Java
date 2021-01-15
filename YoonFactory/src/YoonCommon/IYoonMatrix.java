@@ -22,7 +22,7 @@ public interface IYoonMatrix<T> {
 
     IYoonMatrix add(IYoonMatrix pObject);
 
-    IYoonMatrix substract(IYoonMatrix pObject);
+    IYoonMatrix subtract(IYoonMatrix pObject);
 
     IYoonMatrix multiple(T value);
 

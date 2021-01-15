@@ -120,7 +120,7 @@ public class YoonMatrix2X2Int implements IYoonMatrix<Integer> {
         return m;
     }
 
-    public IYoonMatrix substract(IYoonMatrix pObject) {
+    public IYoonMatrix subtract(IYoonMatrix pObject) {
         YoonMatrix2X2Int m = new YoonMatrix2X2Int();
         YoonMatrix2X2Int pMatrix = (YoonMatrix2X2Int) pObject;
         for (int i = 0; i < m.getLength(); i++) {

@@ -194,7 +194,7 @@ public class YoonMatrix3X3Double implements IYoonMatrix<Double> {
         return m;
     }
 
-    public IYoonMatrix substract(IYoonMatrix pObject) {
+    public IYoonMatrix subtract(IYoonMatrix pObject) {
         YoonMatrix3X3Double m = new YoonMatrix3X3Double();
         YoonMatrix3X3Double pMatrix = (YoonMatrix3X3Double) pObject;
         for (int i = 0; i < m.getLength(); i++) {

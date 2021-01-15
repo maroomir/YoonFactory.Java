@@ -6,12 +6,13 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Arrays;
 
 public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRetryOpenEventListener {
     private final int BUFFER_SIZE = 4096;
     private boolean m_bRetryOpen = false;
     private boolean m_bSend = false;
-    private StringBuilder m_sbReceiveMessage = null;
+    private StringBuilder m_sbReceiveMessage;
     private String m_strAddress = "";
     private int m_nPort = 0;
     private int m_nBacklog = 5;
@@ -22,7 +23,7 @@ public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRe
 
     public YoonServer() {
         // Initialize Manageable Variable
-        m_sbReceiveMessage = new StringBuilder("");
+        m_sbReceiveMessage = new StringBuilder();
         // Event Subscription
         YoonTcpEventHandler.addRetryOpenListener(this);
         YoonTcpEventHandler.addReceiveMessageListener(this);
@@ -207,7 +208,7 @@ public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRe
     public boolean send(String strBuffer) {
         if (m_serverSocket == null || m_connectedClientSocket == null)
             return false;
-        if (m_connectedClientSocket.isConnected() == false) {
+        if (!m_connectedClientSocket.isConnected()) {
             YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, "Send Failure : Connection Fail");
             return false;
         }
@@ -223,12 +224,12 @@ public class YoonServer implements IYoonTcpIp, IReceiveMessageEventListener, IRe
     public boolean send(byte[] pBuffer) {
         if (m_serverSocket == null || m_connectedClientSocket == null)
             return false;
-        if (m_connectedClientSocket.isConnected() == false) {
+        if (!m_connectedClientSocket.isConnected()) {
             YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, "Send Failure : Connection Fail");
             return false;
         }
         try {
-            String strBuffer = String.valueOf(pBuffer);
+            String strBuffer = Arrays.toString(pBuffer);
             m_bSend = m_pRunnableSocket.send(strBuffer);
         } catch (InterruptedException e) {
             e.printStackTrace();

@@ -25,7 +25,7 @@ public class YoonVector2N implements IYoonVector<Integer>, IYoonVector2D<Integer
         return v;
     }
 
-    private static double DELTA = 0.0000000000001;
+    private static final double DELTA = 0.0000000000001;
 
     public Integer getW() {
         return Array[2];
@@ -175,7 +175,7 @@ public class YoonVector2N implements IYoonVector<Integer>, IYoonVector2D<Integer
             return new YoonVector2N();
     }
 
-    public IYoonVector substract(IYoonVector pObject) {
+    public IYoonVector subtract(IYoonVector pObject) {
         if (pObject instanceof YoonVector2N) {
             YoonVector2N pVector = (YoonVector2N) pObject;
             return new YoonVector2N(getX() - pVector.getX(), getY() - pVector.getY());

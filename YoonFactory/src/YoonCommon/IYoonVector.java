@@ -17,7 +17,7 @@ public interface IYoonVector<T> {
 
     IYoonVector add(IYoonVector pObject);
 
-    IYoonVector substract(IYoonVector pObject);
+    IYoonVector subtract(IYoonVector pObject);
 
     IYoonVector multiple(T value);
 
