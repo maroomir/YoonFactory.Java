@@ -2,18 +2,17 @@ package YoonFile;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Locale;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
-class FileFactory {
+public class FileFactory {
 
     public static boolean verifyDirectory(String path) {
         File pDir = new File(path);
         if (pDir.isDirectory()) {
             if (!pDir.exists()) {
-                pDir.mkdirs();
-                if (pDir.exists()) return true;
+                if (pDir.mkdirs()) return false;
+                return pDir.exists();
             } else return true;
         }
         return false;
@@ -31,8 +30,6 @@ class FileFactory {
                     pStream.close();
                     return true;
                 } else return true;
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -51,7 +48,7 @@ class FileFactory {
             int nExtPos = refPath.get().lastIndexOf(".");
             String strExtPath = refPath.get().substring(nExtPos + 1);
             String strFilePathWithoutExt = refPath.get().substring(0, nExtPos);
-            if (strExtPath != strExt) {
+            if (!strExtPath.equals(strExt)) {
                 if (!bChangeExtension) return false;
                 File pFile = new File(refPath.get());
                 String strFilePath = strFilePathWithoutExt + strExtPath;
@@ -76,9 +73,7 @@ class FileFactory {
             if (!verifyDirectory(rootPath)) return pListFile;
             String[] pArrayFiles = pRootPath.list();
             if (pArrayFiles.length > 0) {
-                for (int iFile = 0; iFile < pArrayFiles.length; iFile++) {
-                    pListFile.add(pArrayFiles[iFile]);
-                }
+                Collections.addAll(pListFile, pArrayFiles);
             }
         } else if (pRootPath.isFile()) {
             pListFile.add(rootPath);
@@ -93,8 +88,6 @@ class FileFactory {
             pStream.write(data.getBytes(StandardCharsets.UTF_8));
             pStream.close();
             return true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -114,8 +107,6 @@ class FileFactory {
             pStream.write(data.getBytes(StandardCharsets.UTF_8));
             pStream.close();
             return true;
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -136,8 +127,7 @@ class FileFactory {
                 if (!verifyDirectory(pFile.getParent()))
                     return false;
                 if (pFile.exists()) {
-                    pFile.delete();
-                    return true;
+                    return pFile.delete();
                 } else
                     return true;
             } catch (Exception e) {
@@ -157,9 +147,39 @@ class FileFactory {
                 }
             };
             File[] pArrayFiles = pDir.listFiles(pFilter);
-            for (int iFile = 0; iFile < pArrayFiles.length; iFile++) {
-                pArrayFiles[iFile].delete();
+            for (File pArrayFile : pArrayFiles) {
+                pArrayFile.delete();
             }
+        }
+    }
+
+    public static void deleteOldFilesInDirectory(String strDirectory, int nDateSpan) {
+        Date pDateNow = Calendar.getInstance().getTime();
+        long nMsTimeSpan = (long) nDateSpan * 24 * 60 * 60 * 1000; // 24H * 60M * 60S * 1,000ms
+        deleteOldFilesInDirectory(strDirectory, pDateNow, nMsTimeSpan);
+    }
+
+    public static void deleteOldFilesInDirectory(String strDirectory, Date pDateCompare, int nDateSpan) {
+        long nMsTimeSpan = (long) nDateSpan * 24 * 60 * 60 * 1000; // 24H * 60M * 60S * 1,000ms
+        deleteOldFilesInDirectory(strDirectory, pDateCompare, nMsTimeSpan);
+    }
+
+    public static void deleteOldFilesInDirectory(String strDirectory, Date pDateCompare, long nTimeSpanMs) {
+        File pDirPath = new File(strDirectory);
+        if (!pDirPath.isDirectory()) return;
+        File[] pArrayFiles = pDirPath.listFiles();
+        try {
+            for (File pFile : pArrayFiles) {
+                if (pFile.isDirectory())
+                    deleteOldFilesInDirectory(strDirectory, pDateCompare, nTimeSpanMs);
+                if (pFile.isFile()) {
+                    Date pDateFile = new Date(pFile.lastModified());
+                    if (pDateCompare.getTime() - pDateFile.getTime() >= nTimeSpanMs)
+                        pFile.delete();
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -169,8 +189,8 @@ class FileFactory {
             try {
                 while (pDir.exists()) {
                     File[] pArrayFiles = pDir.listFiles();
-                    for (int iFile = 0; iFile < pArrayFiles.length; iFile++) {
-                        pArrayFiles[iFile].delete();
+                    for (File pArrayFile : pArrayFiles) {
+                        pArrayFile.delete();
                     }
                     if (pArrayFiles.length == 0 && pDir.isDirectory()) {
                         pDir.delete();
