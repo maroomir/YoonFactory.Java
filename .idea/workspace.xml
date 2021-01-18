@@ -9,22 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Add the YoonLog Package">
+    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Code Analysis and Optimize">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonVector.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/IYoonVector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2X2Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2X2Double.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2X2Int.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix2X2Int.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix3X3Double.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix3X3Double.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix3X3Int.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonMatrix3X3Int.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonVector2D.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonVector2D.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonVector2N.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonCommon/YoonVector2N.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonFile/FileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonFile/FileFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryClientRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryClientRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/RetryServerRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonTcpEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/YoonTcpIp/YoonTcpEventHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory.Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory.Java.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,10 +54,10 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -108,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610727849801</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Code Analysis and Optimize">
+      <created>1610728735123</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610728735123</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +134,7 @@
     <MESSAGE value="Optimize in JavaSDK 15" />
     <MESSAGE value="Fixed the Language and roop-condition on YoonServer" />
     <MESSAGE value="Add the YoonLog Package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the YoonLog Package" />
+    <MESSAGE value="Code Analysis and Optimize" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code Analysis and Optimize" />
   </component>
 </project>

@@ -12,7 +12,7 @@ import java.util.concurrent.Executors;
 
 import YoonFile.FileFactory;
 
-public class YoonScribe implements IYoonLog{
+public class YoonConsoler implements IYoonLog{
     private String m_strRootDirectory = "";
     private int m_nFileExistDays;
 
@@ -26,17 +26,17 @@ public class YoonScribe implements IYoonLog{
         this.m_strRootDirectory = strRootDirectory;
     }
 
-    public YoonScribe()
+    public YoonConsoler()
     {
         m_nFileExistDays = 1;
     }
 
-    public YoonScribe(int nDays)
+    public YoonConsoler(int nDays)
     {
         m_nFileExistDays = nDays;
     }
 
-    public YoonScribe(String strDirectory, int nDays)
+    public YoonConsoler(String strDirectory, int nDays)
     {
         m_strRootDirectory = strDirectory;
         m_nFileExistDays = nDays;
