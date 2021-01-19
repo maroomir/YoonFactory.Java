@@ -1,5 +1,7 @@
 package YoonLog;
 
+import java.util.ArrayList;
+
 public interface IYoonLog {
     String getRootDirectory();
 

@@ -1,16 +1,20 @@
 package YoonLog;
 
+import YoonCommon.eYoonStatus;
 import YoonFile.FileFactory;
 
+import java.awt.*;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class YoonConsoler implements IYoonLog {
+import static YoonCommon.eYoonStatus.Info;
+
+public class YoonDisplayer implements IYoonLog {
     private final int MAX_SPAN_DAYS = 30;
-    private String m_strRootDirectory = Paths.get("", "YoonFactory", "CLM").toString();
+    private String m_strRootDirectory = Paths.get("", "YoonFactory", "DLM").toString();
     private int m_nFileExistDays;
 
     @Override
@@ -20,14 +24,14 @@ public class YoonConsoler implements IYoonLog {
 
     @Override
     public void setRootDirectory(String strRootDirectory) {
-        this.m_strRootDirectory = strRootDirectory;
+        this.m_strRootDirectory = m_strRootDirectory;
     }
 
-    public YoonConsoler() {
+    public YoonDisplayer() {
         m_nFileExistDays = 1;
     }
 
-    public YoonConsoler(int nDays) {
+    public YoonDisplayer(int nDays) {
         if (nDays > MAX_SPAN_DAYS)
             m_nFileExistDays = MAX_SPAN_DAYS;
         else if (nDays < 0)
@@ -36,7 +40,7 @@ public class YoonConsoler implements IYoonLog {
             m_nFileExistDays = nDays;
     }
 
-    public YoonConsoler(String strDirectory, int nDays) {
+    public YoonDisplayer(String strDirectory, int nDays) {
         m_strRootDirectory = strDirectory;
         if (nDays > MAX_SPAN_DAYS)
             m_nFileExistDays = MAX_SPAN_DAYS;
@@ -48,15 +52,48 @@ public class YoonConsoler implements IYoonLog {
 
     @Override
     public void write(String strMessage) {
-        write(strMessage, true);
+        write(Info, strMessage, true);
     }
 
-    public void write(String strMessage, boolean bSave) {
+    public void write(eYoonStatus nStatus, String strMessage, boolean bSave) {
         SimpleDateFormat pDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String strMessageLine = "[" + pDateFormat.format(Calendar.getInstance().getTime()) + "]" + strMessage;
-        System.out.println(strMessageLine);
+        String strMessageLine = "[" + pDateFormat.format(Calendar.getInstance().getTime()) + "]";
+        switch (nStatus) {
+            case Normal:
+                strMessageLine += strMessage;
+                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.WHITE);
+                break;
+            case Conform:
+                strMessageLine += ("CONFIRM : " + strMessage);
+                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.ORANGE);
+                break;
+            case Send:
+                strMessageLine += ("SEND : " + strMessage);
+                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.PINK);
+                break;
+            case Receive:
+                strMessageLine += ("RECEIVE : " + strMessage);
+                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.PINK);
+                break;
+            case User:
+                strMessageLine += ("USER : " + strMessage);
+                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.WHITE);
+                break;
+            case Inspect:
+                strMessageLine += ("INSPECT : " + strMessage);
+                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.GREEN);
+                break;
+            case Error:
+                strMessageLine += ("ERROR : " + strMessage);
+                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.RED);
+                break;
+            case Info:
+                strMessageLine += ("INFO : " + strMessage);
+                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.ORANGE);
+                break;
+        }
         if (FileFactory.verifyDirectory(m_strRootDirectory) && bSave) {
-            writeConsoleLog(strMessageLine);
+            writeDisplayLog(strMessageLine);
         }
     }
 
@@ -73,7 +110,7 @@ public class YoonConsoler implements IYoonLog {
                 Integer.toString(pCal.get(Calendar.MONTH))).toString();
     }
 
-    private void writeConsoleLog(String strMessage) {
+    private void writeDisplayLog(String strMessage) {
         //// Erase the old files
         if (m_nFileExistDays > 0) {
             ExecutorService executorService = Executors.newCachedThreadPool();
