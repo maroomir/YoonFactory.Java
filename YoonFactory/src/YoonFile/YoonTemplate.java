@@ -51,9 +51,9 @@ public class YoonTemplate implements IYoonTemplate {
         m_pContainer.setRootDirectory(Paths.get(RootDirectory, strSection).toString());
         //// Load the template information for Ini files
         YoonIni pIni = new YoonIni(strIniFilePath);
-        int nCount = Integer.parseInt(pIni.getValue(strSection, "Count"));
+        int nCount = Integer.parseInt(pIni.getValue(strSection, "Count").toString());
         for (int iParam = 0; iParam < nCount; iParam++) {
-            String strKey = pIni.getValue(strSection, Integer.toString(iParam));
+            String strKey = pIni.getValue(strSection, Integer.toString(iParam)).toString();
             if (!m_pContainer.loadValue(strKey))
                 bResult = false;
         }
@@ -82,9 +82,8 @@ public class YoonTemplate implements IYoonTemplate {
         m_pContainer.setRootDirectory(Paths.get(RootDirectory, strSection).toString());
         //// Save the Information of templates to Ini files
         YoonIni pIni = new YoonIni(strIniFilePath);
-        Map<String, YoonParameter> pMap = m_pContainer.getObjectMap();
-        pIni.setValue(strSection, "Count", Integer.toString(pMap.size()));
-        for (String strKey : pMap.keySet()) {
+        pIni.setValue(strSection, "Count", Integer.toString(m_pContainer.size()));
+        for (Object strKey : m_pContainer.keySet()) {
             pIni.setValue(strSection, Integer.toString(iParam), strKey);
             if (!m_pContainer.saveValue(strKey))
                 bResult = false;

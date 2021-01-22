@@ -1,13 +1,15 @@
 package YoonFile;
 
 import YoonCommon.IYoonContainer;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-public class YoonContainer implements IYoonContainer<YoonParameter> {
+public class YoonContainer implements IYoonContainer<String, YoonParameter> {
     private String m_strDirRoot;
+    private List<String> m_pListKeyOrdered;
     private Map<String, YoonParameter> m_pMapObject;
 
     @Override
@@ -26,7 +28,7 @@ public class YoonContainer implements IYoonContainer<YoonParameter> {
             YoonContainer pParamContainer = (YoonContainer) pContainer;
             m_pMapObject.clear();
             m_strDirRoot = pParamContainer.m_strDirRoot;
-            m_pMapObject = new HashMap<>(pParamContainer.getObjectMap());
+            m_pMapObject = new HashMap<>(pParamContainer);
         }
     }
 
@@ -48,8 +50,67 @@ public class YoonContainer implements IYoonContainer<YoonParameter> {
     }
 
     @Override
+    public int size() {
+        return m_pMapObject.size();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return m_pMapObject.isEmpty();
+    }
+
+    @Override
+    public boolean containsKey(Object key) {
+        return m_pMapObject.containsKey(key);
+    }
+
+    @Override
+    public boolean containsValue(Object value) {
+        return m_pMapObject.containsValue(value);
+    }
+
+    @Override
+    public YoonParameter get(Object key) {
+        return m_pMapObject.get(key);
+    }
+
+    @Nullable
+    @Override
+    public YoonParameter put(String key, YoonParameter value) {
+        return m_pMapObject.put(key, value);
+    }
+
+    @Override
+    public YoonParameter remove(Object key) {
+        return m_pMapObject.remove(key);
+    }
+
+    @Override
+    public void putAll(@NotNull Map<? extends String, ? extends YoonParameter> m) {
+        m_pMapObject.putAll(m);
+    }
+
+    @Override
     public void clear() {
         m_pMapObject.clear();
+    }
+
+    @NotNull
+    @Override
+    public Set<String> keySet() {
+        return m_pMapObject.keySet();
+    }
+
+    @NotNull
+    @Override
+    public Collection<YoonParameter> values() {
+        return m_pMapObject.values();
+    }
+
+    @NotNull
+    @Override
+    public Set<Entry<String, YoonParameter>> entrySet() {
+        return m_pMapObject.entrySet();
     }
 
     @Override
@@ -73,50 +134,5 @@ public class YoonContainer implements IYoonContainer<YoonParameter> {
         YoonParameter pParam = m_pMapObject.get(strKey);
         pParam.RootDirectory = m_strDirRoot;
         return pParam.saveParameter(strKey);
-    }
-
-    @Override
-    public Map<String, YoonParameter> getObjectMap() {
-        return m_pMapObject;
-    }
-
-    @Override
-    public boolean add(String strKey, YoonParameter pValue) {
-        try {
-            m_pMapObject.put(strKey, pValue);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    @Override
-    public boolean remove(String strKey) {
-        return m_pMapObject.remove(strKey, m_pMapObject.get(strKey));
-    }
-
-    @Override
-    public String getKey(YoonParameter pParam) {
-        for (String strKey : m_pMapObject.keySet()) {
-            if (pParam.Parameter.isEqual(m_pMapObject.get(strKey).Parameter))
-                return strKey;
-        }
-        return "";
-    }
-
-    @Override
-    public YoonParameter getValue(String strKey) {
-        if (m_pMapObject.containsKey(strKey))
-            return m_pMapObject.get(strKey);
-        else
-            return null;
-    }
-
-    @Override
-    public void setValue(String strKey, YoonParameter pValue) {
-        if (m_pMapObject.containsKey(strKey))
-            m_pMapObject.replace(strKey, pValue);
-        else
-            m_pMapObject.put(strKey, pValue);
     }
 }

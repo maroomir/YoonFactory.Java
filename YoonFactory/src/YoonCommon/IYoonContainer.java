@@ -1,7 +1,8 @@
 package YoonCommon;
+
 import java.util.Map;
 
-public interface IYoonContainer<T> {
+public interface IYoonContainer<T, V> extends Map<T, V> {
 
     String getRootDirectory();
 
@@ -11,19 +12,7 @@ public interface IYoonContainer<T> {
 
     void clear();
 
-    boolean loadValue(String strKey);
+    boolean loadValue(T pKey);
 
-    boolean saveValue(String strKey);
-
-    Map<String, T> getObjectMap();
-
-    boolean add(String strKey, T pValue);
-
-    boolean remove(String strKey);
-
-    String getKey(T pValue);
-
-    T getValue(String strKey);
-
-    void setValue(String strKey, T pValue);
+    boolean saveValue(T pKey);
 }

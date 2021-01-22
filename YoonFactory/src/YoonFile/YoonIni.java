@@ -39,7 +39,7 @@ public class YoonIni implements IYoonFile {
         return FileFactory.verifyFileExtension(refStrPath, "ini", false, false);
     }
 
-    public String getValue(String strSection, String strKey) {
+    public Object getValue(String strSection, String strKey) {
         if (!isFileExist()) return null;
         try {
             Ini pIni = new Ini(new File(m_strFilePath));
@@ -52,11 +52,11 @@ public class YoonIni implements IYoonFile {
         return null;
     }
 
-    public boolean setValue(String strSection, String strKey, String strValue) {
+    public boolean setValue(String strSection, String strKey, Object value) {
         if (!isFileExist()) return false;
         try {
             Wini pIni = new Wini(new File(m_strFilePath));
-            pIni.put(strSection, strKey, strValue);
+            pIni.put(strSection, strKey, value);
             pIni.store();
             return true;
         } catch (InvalidFileFormatException e) {
