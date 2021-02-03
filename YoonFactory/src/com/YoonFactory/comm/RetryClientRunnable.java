@@ -1,4 +1,4 @@
-package com.yoonfactory.tcpIp;
+package com.yoonfactory.comm;
 
 import com.yoonfactory.eYoonStatus;
 import org.springframework.util.StopWatch;
@@ -13,13 +13,13 @@ class RetryClientRunnable implements Runnable {
     private final int m_nTimeout;
     private boolean m_bRetryOpen = false;
 
-    public RetryClientRunnable(Socket pSocket, int nRetryCount, int nTimeout) {
+    RetryClientRunnable(Socket pSocket, int nRetryCount, int nTimeout) {
         m_clientSocket = pSocket;
         m_nRetryCount = nRetryCount;
         m_nTimeout = nTimeout;
     }
 
-    public void setRetryOpen(boolean bRetryOpen) {
+    void setRetryOpen(boolean bRetryOpen) {
         this.m_bRetryOpen = bRetryOpen;
     }
 
@@ -28,7 +28,7 @@ class RetryClientRunnable implements Runnable {
         if (m_clientSocket == null) return;
         m_pStopWatch.stop();
         m_pStopWatch.start();
-        YoonTcpEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Info, "Retry Client Start");
+        CommEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Info, "Retry Client Start");
         try {
             for (int iRetry = 0; iRetry < m_nRetryCount; iRetry++) {
                 //// Error : Timeout
@@ -40,26 +40,26 @@ class RetryClientRunnable implements Runnable {
                 ////  Success to connect
                 if (m_clientSocket != null) {
                     if (m_clientSocket.isConnected()) {
-                        YoonTcpEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Info, "Connection Retry Success");
+                        CommEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Info, "Connection Retry Success");
                         m_bRetryOpen = false;
                         break;
                     }
                 }
-                YoonTcpEventHandler.callRetryOpenEvent(RetryClientRunnable.class);
+                CommEventHandler.callRetryOpenEvent(RetryClientRunnable.class);
             }
             m_pStopWatch.stop();
 
             if (m_clientSocket == null) {
-                YoonTcpEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Error, "Connection Retry Failure : Connection Socket Empty");
+                CommEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Error, "Connection Retry Failure : Connection Socket Empty");
                 return;
             }
             if (!m_clientSocket.isConnected()) {
-                YoonTcpEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Error, "Connection Retry Failure : Connection Fail");
+                CommEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Error, "Connection Retry Failure : Connection Fail");
             }
         } catch (IllegalStateException e) {
             e.printStackTrace();
         } finally {
-            YoonTcpEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Info, "Retry Thread Exit");
+            CommEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Info, "Retry Thread Exit");
         }
     }
 }

@@ -20,5 +20,6 @@
     <orderEntry type="library" name="org.ini4j:ini4j:0.5.4" level="project" />
     <orderEntry type="library" name="org.jetbrains:annotations:18.0.0" level="project" />
     <orderEntry type="library" name="org.springframework:spring-core:5.2.8.RELEASE" level="project" />
+    <orderEntry type="library" name="org.rxtx:rxtx:2.1.7" level="project" />
   </component>
 </module>

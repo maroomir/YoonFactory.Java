@@ -1,8 +1,10 @@
-package com.yoonfactory;
+package com.yoonfactory.param;
+
+import com.yoonfactory.IYoonSection;
 
 import java.util.Map;
 
-public interface IYoonContainer<T, V> extends Map<T, V> {
+public interface IYoonContainer<T, V> extends IYoonSection<T,V> {
 
     String getRootDirectory();
 

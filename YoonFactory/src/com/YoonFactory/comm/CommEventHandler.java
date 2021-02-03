@@ -1,4 +1,4 @@
-package com.yoonfactory.tcpIp;
+package com.yoonfactory.comm;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -6,7 +6,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import com.yoonfactory.eYoonStatus;
 
-public class YoonTcpEventHandler {
+public class CommEventHandler {
 
     private static final int MAX_THREAD_POOL = 5;
 

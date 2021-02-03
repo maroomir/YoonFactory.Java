@@ -1,4 +1,4 @@
-package com.yoonfactory.tcpIp;
+package com.yoonfactory.comm;
 
 import com.yoonfactory.eYoonStatus;
 

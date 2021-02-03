@@ -10,7 +10,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Code Analysis and Optimize">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_rxtx_rxtx_2_1_7.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/IYoonSection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/Log/LogEventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/ActiveSerialRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/ActiveTcpRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/CommEventHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/IReceiveMessageEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/IRetryOpenEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/IShowMessageEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/IYoonComm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/IYoonSerial.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/IYoonTcpIp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/RetryClientRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/RetryServerRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/YoonClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/YoonServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/comm/eStepCommThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory.Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory.Java.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/IYoonContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/IYoonContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/IYoonParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/IYoonParameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/IYoonTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/IYoonTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/Log/YoonDisplayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/Log/YoonDisplayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/Log/YoonLogEventHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/YoonContainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/YoonContainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/YoonParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/YoonParameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/YoonTemplate.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/param/YoonTemplate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/ActiveTcpRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/IReceiveMessageEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/IRetryOpenEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/IShowMessageEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/IYoonTcpIp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/RetryClientRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/RetryServerRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/YoonClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/YoonServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/YoonTcpEventHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/YoonFactory/tcpIp/eStepTcpThread.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +89,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -60,6 +97,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yoonfactory.comm" />
+      <recent name="com.yoonfactory.serial" />
       <recent name="YoonTcpIp" />
       <recent name="YoonFile" />
       <recent name="YoonCommon" />

@@ -6,7 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class YoonLogEventHandler {
+public class LogEventHandler {
     private static final int MAX_THREAD_POOL = 5;
     private static final List<IProcessLogEventListener> m_pListProcessLogListener = new CopyOnWriteArrayList<>();
 

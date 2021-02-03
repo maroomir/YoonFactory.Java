@@ -1,4 +1,4 @@
-package com.yoonfactory.tcpIp;
+package com.yoonfactory.comm;
 
 import com.yoonfactory.eYoonStatus;
 
@@ -20,6 +20,8 @@ public class YoonClient implements IYoonTcpIp, IReceiveMessageEventListener, IRe
         // Initialize Manageable Variable
         m_sbReceiveMessage = new StringBuilder();
         // Event Subscription
+        CommEventHandler.addRetryOpenListener(this);
+        CommEventHandler.addReceiveMessageListener(this);
     }
 
     @Override
@@ -85,9 +87,9 @@ public class YoonClient implements IYoonTcpIp, IReceiveMessageEventListener, IRe
     }
 
     @Override
-    public void copyFrom(IYoonTcpIp pTcpIp) {
-        if (pTcpIp instanceof YoonClient) {
-            YoonClient pClient = (YoonClient) pTcpIp;
+    public void copyFrom(IYoonComm pComm) {
+        if (pComm instanceof YoonClient) {
+            YoonClient pClient = (YoonClient) pComm;
             close();
             if (pClient.isConnected())
                 pClient.close();
@@ -118,28 +120,29 @@ public class YoonClient implements IYoonTcpIp, IReceiveMessageEventListener, IRe
         try {
             m_clientSocket = new Socket();
             if (!isRetryOpen())
-                YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, String.format("Connection Attempt : %s / %d", m_strAddress, m_nPort));
+                CommEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, String.format("Connection Attempt : %s / %d", m_strAddress, m_nPort));
             //// Connected port
             m_clientSocket.connect(new InetSocketAddress(m_strAddress, m_nPort), m_nTimeout);
             int BUFFER_SIZE = 4096;
             m_clientSocket.setReceiveBufferSize(BUFFER_SIZE);
+            //// Run Socket Thread
             m_pRunnableSocket = new ActiveTcpRunnable(m_clientSocket);
             m_threadSocket = new Thread(m_pRunnableSocket);
             m_threadSocket.start();
         } catch (IOException e) {
             e.printStackTrace();
-            YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Error, e.getMessage());
+            CommEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Error, e.getMessage());
             m_bRetryOpen = false;
             if (m_clientSocket != null)
                 m_clientSocket = null;
             return false;
         }
         if (m_clientSocket.isConnected()) {
-            YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Connection Success");
+            CommEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Connection Success");
             m_bRetryOpen = false;
         } else {
             if (!m_bRetryOpen)
-                YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Connection Failure");
+                CommEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Connection Failure");
             m_bRetryOpen = true;
         }
         return m_clientSocket.isConnected();
@@ -148,25 +151,28 @@ public class YoonClient implements IYoonTcpIp, IReceiveMessageEventListener, IRe
     public void close() {
         if (m_bRetryOpen)
             m_bRetryOpen = false;
-        YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Close Connection");
+        CommEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Info, "Close Connection");
         if (m_clientSocket == null)
             return;
         try {
             //// Stop Open Retry Thread
             OnStopRetryThread();
             //// Stop Active Tcp Thread
-            m_pRunnableSocket.close();
-            if (m_threadSocket.isAlive())
-                m_threadSocket.interrupt();
+            if(m_pRunnableSocket != null)
+            {
+                m_pRunnableSocket.close();
+                if (m_threadSocket.isAlive())
+                    m_threadSocket.interrupt();
+            }
             //// Close the Socket
             m_clientSocket.close();
             //// Remove the Event Listener
-            YoonTcpEventHandler.removeReceiveMessageListener(this);
-            YoonTcpEventHandler.removeRetryOpenListener(this);
+            CommEventHandler.removeReceiveMessageListener(this);
+            CommEventHandler.removeRetryOpenListener(this);
 
         } catch (IOException e) {
             e.printStackTrace();
-            YoonTcpEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Error, e.getMessage());
+            CommEventHandler.callShowMessageEvent(YoonClient.class, eYoonStatus.Error, e.getMessage());
         }
         m_clientSocket = null;
     }
@@ -195,7 +201,7 @@ public class YoonClient implements IYoonTcpIp, IReceiveMessageEventListener, IRe
         if (m_clientSocket == null)
             return false;
         if (!m_clientSocket.isConnected()) {
-            YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, "Send Failure : Connection Fail");
+            CommEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, "Send Failure : Connection Fail");
             return false;
         }
         try {
@@ -211,7 +217,7 @@ public class YoonClient implements IYoonTcpIp, IReceiveMessageEventListener, IRe
         if (m_clientSocket == null)
             return false;
         if (!m_clientSocket.isConnected()) {
-            YoonTcpEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, "Send Failure : Connection Fail");
+            CommEventHandler.callShowMessageEvent(YoonServer.class, eYoonStatus.Error, "Send Failure : Connection Fail");
             return false;
         }
         try {

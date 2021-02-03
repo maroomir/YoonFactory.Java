@@ -1,6 +1,6 @@
-package com.yoonfactory.tcpIp;
+package com.yoonfactory.comm;
 
-enum eStepTcpThread {
+enum eStepCommThread {
     Wait,
     Receive,
     Send,

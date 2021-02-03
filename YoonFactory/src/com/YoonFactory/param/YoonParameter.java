@@ -1,6 +1,5 @@
 package com.yoonfactory.param;
 
-import com.yoonfactory.IYoonParameter;
 import com.yoonfactory.file.YoonJson;
 
 import java.lang.reflect.Type;

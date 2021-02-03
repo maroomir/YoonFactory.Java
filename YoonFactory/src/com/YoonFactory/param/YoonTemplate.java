@@ -1,32 +1,60 @@
 package com.yoonfactory.param;
 
-import com.yoonfactory.IYoonContainer;
-import com.yoonfactory.IYoonTemplate;
 import com.yoonfactory.file.YoonIni;
 
 import java.nio.file.Paths;
 
 public class YoonTemplate implements IYoonTemplate {
 
-    public int No;
-    public String Name;
-    public String RootDirectory;
+    private int m_no;
+    private String m_strName;
+    private String m_strRootDirectory;
     private IYoonContainer m_pContainer;
 
     public YoonTemplate() {
-        No = 0;
-        Name = "Default";
-        RootDirectory = Paths.get("", "YoonFactory").toString();
+        m_no = 0;
+        m_strName = "Default";
+        m_strRootDirectory = Paths.get("", "YoonFactory").toString();
         m_pContainer = new YoonContainer();
+    }
+
+    @Override
+    public int getNo() {
+        return m_no;
+    }
+
+    @Override
+    public void setNo(int nNo) {
+        m_no = nNo;
+    }
+
+    @Override
+    public String getName() {
+        return m_strName;
+    }
+
+    @Override
+    public void setName(String strName) {
+        m_strName = strName;
+    }
+
+    @Override
+    public String getRootDirectory() {
+        return m_strRootDirectory;
+    }
+
+    @Override
+    public void setRootDirectory(String strDir) {
+        m_strRootDirectory = strDir;
     }
 
     @Override
     public void copyFrom(IYoonTemplate pTemplate) {
         if (pTemplate instanceof YoonTemplate) {
             YoonTemplate pTempOrigin = (YoonTemplate) pTemplate;
-            No = pTempOrigin.No;
-            Name = pTempOrigin.Name;
-            RootDirectory = pTempOrigin.RootDirectory;
+            m_no = pTempOrigin.m_no;
+            m_strName = pTempOrigin.m_strName;
+            m_strRootDirectory = pTempOrigin.m_strRootDirectory;
             m_pContainer.copyFrom(pTempOrigin.getContainer());
         }
     }
@@ -34,21 +62,21 @@ public class YoonTemplate implements IYoonTemplate {
     @Override
     public IYoonTemplate clone() {
         YoonTemplate pTemplate = new YoonTemplate();
-        pTemplate.No = No;
-        pTemplate.Name = Name;
-        pTemplate.RootDirectory = RootDirectory;
+        pTemplate.m_no = m_no;
+        pTemplate.m_strName = m_strName;
+        pTemplate.m_strRootDirectory = m_strRootDirectory;
         pTemplate.m_pContainer.copyFrom(m_pContainer);
         return pTemplate;
     }
 
     @Override
     public boolean loadTemplate() {
-        if (RootDirectory == "" || m_pContainer == null)
+        if (m_strRootDirectory == "" || m_pContainer == null)
             return false;
         boolean bResult = true;
-        String strSection = String.format("%d_%s", No, Name);
-        String strIniFilePath = Paths.get(RootDirectory, "YoonTemplate.ini").toString();
-        m_pContainer.setRootDirectory(Paths.get(RootDirectory, strSection).toString());
+        String strSection = String.format("%d_%s", m_no, m_strName);
+        String strIniFilePath = Paths.get(m_strRootDirectory, "YoonTemplate.ini").toString();
+        m_pContainer.setRootDirectory(Paths.get(m_strRootDirectory, strSection).toString());
         //// Load the template information for Ini files
         YoonIni pIni = new YoonIni(strIniFilePath);
         int nCount = Integer.parseInt(pIni.getValue(strSection, "Count").toString());
@@ -72,14 +100,14 @@ public class YoonTemplate implements IYoonTemplate {
 
     @Override
     public boolean saveTemplate() {
-        if (RootDirectory == "" || m_pContainer == null)
+        if (m_strRootDirectory == "" || m_pContainer == null)
             return false;
 
         boolean bResult = true;
         int iParam = 0;
-        String strSection = String.format("%d_%s", No, Name);
-        String strIniFilePath = Paths.get(RootDirectory, "YoonTemplate.ini").toString();
-        m_pContainer.setRootDirectory(Paths.get(RootDirectory, strSection).toString());
+        String strSection = String.format("%d_%s", m_no, m_strName);
+        String strIniFilePath = Paths.get(m_strRootDirectory, "YoonTemplate.ini").toString();
+        m_pContainer.setRootDirectory(Paths.get(m_strRootDirectory, strSection).toString());
         //// Save the Information of templates to Ini files
         YoonIni pIni = new YoonIni(strIniFilePath);
         pIni.setValue(strSection, "Count", Integer.toString(m_pContainer.size()));

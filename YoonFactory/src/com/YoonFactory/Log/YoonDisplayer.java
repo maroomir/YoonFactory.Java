@@ -61,35 +61,35 @@ public class YoonDisplayer implements IYoonLog {
         switch (nStatus) {
             case Normal:
                 strMessageLine += strMessage;
-                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.WHITE);
+                LogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.WHITE);
                 break;
             case Conform:
                 strMessageLine += ("CONFIRM : " + strMessage);
-                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.ORANGE);
+                LogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.ORANGE);
                 break;
             case Send:
                 strMessageLine += ("SEND : " + strMessage);
-                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.PINK);
+                LogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.PINK);
                 break;
             case Receive:
                 strMessageLine += ("RECEIVE : " + strMessage);
-                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.PINK);
+                LogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.PINK);
                 break;
             case User:
                 strMessageLine += ("USER : " + strMessage);
-                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.WHITE);
+                LogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.WHITE);
                 break;
             case Inspect:
                 strMessageLine += ("INSPECT : " + strMessage);
-                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.GREEN);
+                LogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.GREEN);
                 break;
             case Error:
                 strMessageLine += ("ERROR : " + strMessage);
-                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.RED);
+                LogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.RED);
                 break;
             case Info:
                 strMessageLine += ("INFO : " + strMessage);
-                YoonLogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.ORANGE);
+                LogEventHandler.callProcessLogEvent(YoonDisplayer.class, strMessageLine, Color.ORANGE);
                 break;
         }
         if (FileFactory.verifyDirectory(m_strRootDirectory) && bSave) {

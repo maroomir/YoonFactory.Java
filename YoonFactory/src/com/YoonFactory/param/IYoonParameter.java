@@ -1,4 +1,4 @@
-package com.yoonfactory;
+package com.yoonfactory.param;
 
 public interface IYoonParameter {
 
