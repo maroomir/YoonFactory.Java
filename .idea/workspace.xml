@@ -9,20 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Code Analysis and Optimize">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/YoonFactory_Java.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonSample.TCPForm/YoonSample.TCPForm.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonSample.TCPForm/src/ParameterTcp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Add YoonSample.TCPForm (Init commit)">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_31.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_6.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YoonFactory.Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory.Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/FileFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/FileFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonIni.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonIni.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonJson.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonJson.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonXml.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonXml.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/param/YoonParameter.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/param/YoonParameter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/YoonSample.TCPForm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/YoonSample.TCPForm/YoonSample.TCPForm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/ParameterTcp.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonSample.TCPForm/src/ParameterTcp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/gson-2.8.6.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +65,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -140,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612441546298</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add YoonSample.TCPForm (Init commit)">
+      <created>1612846384696</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612846384696</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -176,21 +180,21 @@
     <MESSAGE value="Change the package root to com.yoonfactory.*" />
     <MESSAGE value="Change the folder Names [TEMP]" />
     <MESSAGE value="Change the folder Names [Completed]" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change the folder Names [Completed]" />
+    <MESSAGE value="Add YoonSample.TCPForm (Init commit)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add YoonSample.TCPForm (Init commit)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/out/artifacts/YoonFactory_Java_jar/YoonFactory.Java.jar!/com/yoonfactory/file/YoonJson.class</url>
-          <line>58</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>jar://$PROJECT_DIR$/lib/gson-2.8.6.jar!/com/google/gson/Gson.class</url>
           <line>80</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NoClassDefFoundError" package="java.lang" />
+          <option name="timeStamp" value="23" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

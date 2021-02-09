@@ -4,6 +4,11 @@ public class ParameterTcp implements IYoonParameter {
     public String ipAddress;
     public String port;
 
+    public ParameterTcp() {
+        ipAddress = "192.168.100.100";
+        port = "5000";
+    }
+
     @Override
     public boolean isEqual(IYoonParameter iYoonParameter) {
         if (iYoonParameter instanceof ParameterTcp) {

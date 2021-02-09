@@ -1,6 +1,6 @@
 package com.yoonfactory.file;
 
-import com.google.gson.Gson;
+import com.google.gson.*;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -38,8 +38,8 @@ public class YoonJson implements IYoonFile {
         return FileFactory.verifyFileExtension(refStrPath, "json", false, false);
     }
 
-    public Object loadFile(Type pType) {
-        if (!isFileExist()) return null;
+    public Object loadFile(Type pType) throws FileNotFoundException {
+        if (!isFileExist()) throw new FileNotFoundException();
         try {
             Gson pGson = new Gson();
             FileReader pReader = new FileReader(m_strFilePath);

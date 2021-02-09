@@ -2,6 +2,7 @@ package com.yoonfactory.param;
 
 import com.yoonfactory.file.YoonJson;
 
+import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
 import java.nio.file.Paths;
 
@@ -60,10 +61,12 @@ public class YoonParameter {
         String strFilePath = Paths.get(RootDirectory, strFileName + ".json").toString();
         IYoonParameter pParamBk = Parameter;
         YoonJson pJson = new YoonJson(strFilePath);
-        Object pParam = pJson.loadFile(m_pTypeParam);
-        if (pParam != null) {
+        try {
+            Object pParam = pJson.loadFile(m_pTypeParam);
             Parameter = (IYoonParameter) pParam;
             return true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
         if (bSaveIfFalse) return saveParameter();
         return false;
