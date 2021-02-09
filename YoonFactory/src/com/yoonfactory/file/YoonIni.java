@@ -53,7 +53,6 @@ public class YoonIni implements IYoonFile {
     }
 
     public boolean setValue(String strSection, String strKey, Object value) {
-        if (!isFileExist()) return false;
         try {
             Wini pIni = new Wini(new File(m_strFilePath));
             pIni.put(strSection, strKey, value);

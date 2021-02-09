@@ -51,7 +51,6 @@ public class YoonJson implements IYoonFile {
     }
 
     public boolean saveFile(Object pObject, Type pType) {
-        if (!isFileExist()) return false;
         try {
             Gson pGson = new Gson();
             String strJsonData = pGson.toJson(pObject, pType);

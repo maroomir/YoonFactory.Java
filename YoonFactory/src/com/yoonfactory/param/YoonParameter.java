@@ -22,14 +22,16 @@ public class YoonParameter {
     }
 
     public YoonParameter(IYoonParameter pParam, Type pType) {
-        Parameter.copyFrom(pParam);
+        Parameter = pParam;
         m_pTypeParam = pType;
         RootDirectory = Paths.get("", "YoonFactory").toString();
     }
 
     public void setParameter(IYoonParameter pParam, Type pType) {
-        Parameter.copyFrom(pParam);
-        m_pTypeParam = pType;
+        if (pParam != null) {
+            Parameter.copyFrom(pParam);
+            m_pTypeParam = pType;
+        }
     }
 
     public boolean isEqual(YoonParameter pParam) {

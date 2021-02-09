@@ -2,42 +2,53 @@ package com.yoonfactory.file;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class FileFactory {
 
+    public static String getCurrentDirectory(){
+        return getAbsoluteDirectory("");
+    }
+
+    public static String getAbsoluteDirectory(String path){
+        Path pPath = Paths.get(path);
+        return pPath.toAbsolutePath().toString();
+    }
+
+    public static String getLineSeparator() {
+        return System.getProperty("line.separator");
+    }
+
     public static boolean verifyDirectory(String path) {
         File pDir = new File(path);
-        if (pDir.isDirectory()) {
-            if (!pDir.exists()) {
-                if (pDir.mkdirs()) return false;
-                return pDir.exists();
-            } else return true;
-        }
-        return false;
+        if (!pDir.exists()) {
+            if (!pDir.mkdirs())
+                return false;
+            return pDir.exists();
+        } else return true;
     }
 
     public static boolean verifyFilePath(String path, Boolean bCreateFile) {
         File pFile = new File(path);
         FileOutputStream pStream = null;
-        if (pFile.isFile()) {
-            if (!verifyDirectory(pFile.getParent())) return false;
+        if (!verifyDirectory(pFile.getParent())) return false;
+        try {
+            if (!pFile.exists()) {
+                if (!bCreateFile) return false;
+                pStream = new FileOutputStream(pFile);
+                pStream.close();
+            }
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
             try {
-                if (!pFile.exists()) {
-                    if (!bCreateFile) return false;
-                    pStream = new FileOutputStream(pFile);
-                    pStream.close();
-                }
-                return true;
+                if (pStream != null) pStream.close();
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    if (pStream != null) pStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
         }
         return false;
@@ -103,6 +114,7 @@ public class FileFactory {
         try {
             pStream = new FileOutputStream(path, true);
             pStream.write(data.getBytes(StandardCharsets.UTF_8));
+            pStream.write(getLineSeparator().getBytes(StandardCharsets.UTF_8));
             pStream.close();
             return true;
         } catch (IOException e) {
@@ -169,7 +181,7 @@ public class FileFactory {
         try {
             for (File pFile : pArrayFiles) {
                 if (pFile.isDirectory())
-                    deleteOldFilesInDirectory(strDirectory, pDateCompare, nTimeSpanMs);
+                    deleteOldFilesInDirectory(pFile.getPath(), pDateCompare, nTimeSpanMs);
                 if (pFile.isFile()) {
                     Date pDateFile = new Date(pFile.lastModified());
                     if (pDateCompare.getTime() - pDateFile.getTime() >= nTimeSpanMs)

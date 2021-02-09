@@ -53,7 +53,6 @@ public class YoonProperties implements IYoonFile {
     }
 
     public boolean setValue(String strKey, String strValue) {
-        if (!isFileExist()) return false;
         try {
             Properties pProp = new Properties();
             pProp.setProperty(strKey, strValue);

@@ -70,7 +70,6 @@ public class YoonXml implements IYoonFile {
     }
 
     public boolean saveFile(Document pDocXml) throws IOException {
-        if (!isFileExist()) return false;
         FileOutputStream pStream = null;
         try {
             pStream = new FileOutputStream(new File(m_strFilePath), false);
