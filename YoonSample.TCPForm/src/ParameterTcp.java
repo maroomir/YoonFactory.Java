@@ -2,11 +2,13 @@ import com.yoonfactory.param.IYoonParameter;
 
 public class ParameterTcp implements IYoonParameter {
     public String ipAddress;
-    public String port;
+    public int port;
+    public boolean isServer;
 
     public ParameterTcp() {
         ipAddress = "192.168.100.100";
-        port = "5000";
+        port = 5000;
+        isServer = false;
     }
 
     @Override

@@ -45,7 +45,7 @@ public class LogEventHandler {
                 @Override
                 public void run() {
                     if (!listener.getClass().getName().equals(caller.getName())) {
-                        listener.OnProcessLogEvent(strMessage, pColor);
+                        listener.onProcessLogEvent(strMessage, pColor);
                     }
                 }
             });
@@ -55,7 +55,7 @@ public class LogEventHandler {
     private static synchronized void callProcessLogEventBySync(final Class<?> caller, final String strMessage, final Color pColor) {
         for (final IProcessLogEventListener listener : m_pListProcessLogListener) {
             if (!listener.getClass().getName().equals(caller.getName())) {
-                listener.OnProcessLogEvent(strMessage, pColor);
+                listener.onProcessLogEvent(strMessage, pColor);
             }
         }
     }

@@ -24,7 +24,7 @@ public class YoonDisplayer implements IYoonLog {
 
     @Override
     public void setRootDirectory(String strRootDirectory) {
-        this.m_strRootDirectory = m_strRootDirectory;
+        m_strRootDirectory = strRootDirectory;
     }
 
     public YoonDisplayer() {
