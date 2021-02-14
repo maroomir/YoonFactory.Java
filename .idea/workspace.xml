@@ -10,14 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Add YoonSample.TCPForm (Init commit)">
+      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/YoonImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/YoonServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/YoonServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/IProcessLogEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/IProcessLogEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/LogEventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/LogEventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/YoonDisplayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/YoonDisplayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/CommonClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonSample.TCPForm/src/CommonClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonSample.TCPForm/src/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/ParameterTcp.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonSample.TCPForm/src/ParameterTcp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
