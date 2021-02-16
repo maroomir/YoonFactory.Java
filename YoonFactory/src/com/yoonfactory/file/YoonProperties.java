@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class YoonProperties implements IYoonFile {
     private String m_strFilePath;
+    private Properties m_pProp;
 
     @Override
     public String getFilePath() {
@@ -38,25 +39,12 @@ public class YoonProperties implements IYoonFile {
         return FileFactory.verifyFileExtension(refStrPath, "properties", false, false);
     }
 
-    public String getValue(String strKey) {
-        if (!isFileExist()) return null;
+    @Override
+    public boolean loadFile() {
+        if (!isFileExist()) return false;
         try {
-            Properties pProp = new Properties();
-            pProp.load(new FileInputStream(m_strFilePath));
-            return pProp.getProperty(strKey);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public boolean setValue(String strKey, String strValue) {
-        try {
-            Properties pProp = new Properties();
-            pProp.setProperty(strKey, strValue);
-            pProp.store(new FileOutputStream(m_strFilePath), null);
+            m_pProp = new Properties();
+            m_pProp.load(new FileInputStream(m_strFilePath));
             return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -64,5 +52,29 @@ public class YoonProperties implements IYoonFile {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public boolean saveFile() {
+        try {
+            m_pProp.store(new FileOutputStream(m_strFilePath), null);
+            return true;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public String getValue(String strKey) throws NullPointerException {
+        if (m_pProp == null) throw new NullPointerException();
+        return m_pProp.getProperty(strKey);
+    }
+
+    public boolean setValue(String strKey, String strValue) throws NullPointerException {
+        if (m_pProp == null) throw new NullPointerException();
+        if (m_pProp.setProperty(strKey, strValue) != null) return true;
+        else return false;
     }
 }

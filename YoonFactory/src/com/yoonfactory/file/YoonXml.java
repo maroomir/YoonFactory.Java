@@ -17,10 +17,19 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class YoonXml implements IYoonFile {
     private String m_strFilePath;
+    private Document m_pDocument;
 
     @Override
     public String getFilePath() {
         return m_strFilePath;
+    }
+
+    public Document getDocument() {
+        return m_pDocument;
+    }
+
+    public void setDocument(Document pDocument) {
+        m_pDocument = pDocument;
     }
 
     @Override
@@ -46,17 +55,18 @@ public class YoonXml implements IYoonFile {
         return FileFactory.verifyFileExtension(refStrPath, "xml", false, false);
     }
 
-    public Document loadFile() throws IOException {
-        if (!isFileExist()) return null;
+    @Override
+    public boolean loadFile() {
+        if (!isFileExist()) return false;
         FileInputStream pStream = null;
         try {
             //// Parsing XML to Document
             pStream = new FileInputStream(new File(m_strFilePath));
             DocumentBuilderFactory pFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder pBuilder = pFactory.newDocumentBuilder();
-            Document pDocXml = pBuilder.parse(pStream);
+            m_pDocument = pBuilder.parse(pStream);
             pStream.close();
-            return pDocXml;
+            return true;
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
@@ -64,18 +74,24 @@ public class YoonXml implements IYoonFile {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (pStream != null) pStream.close();
+            try {
+                if (pStream != null)
+                    pStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return null;
+        return false;
     }
 
-    public boolean saveFile(Document pDocXml) throws IOException {
+    @Override
+    public boolean saveFile() {
         FileOutputStream pStream = null;
         try {
             pStream = new FileOutputStream(new File(m_strFilePath), false);
             TransformerFactory pFactory = TransformerFactory.newInstance();
             Transformer pTransform = pFactory.newTransformer();
-            DOMSource pSource = new DOMSource(pDocXml);
+            DOMSource pSource = new DOMSource(m_pDocument);
             pTransform.transform(pSource, new StreamResult(pStream));
             pStream.close();
             return true;
@@ -85,8 +101,8 @@ public class YoonXml implements IYoonFile {
             e.printStackTrace();
         } catch (TransformerException e) {
             e.printStackTrace();
-        } finally {
-            if (pStream != null) pStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return false;
     }

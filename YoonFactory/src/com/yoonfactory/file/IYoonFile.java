@@ -6,4 +6,8 @@ public interface IYoonFile {
     void copyFrom(IYoonFile pFile);
 
     boolean isFileExist();
+
+    boolean loadFile();
+
+    boolean saveFile();
 }

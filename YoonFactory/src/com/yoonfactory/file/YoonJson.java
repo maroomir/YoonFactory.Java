@@ -9,10 +9,29 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class YoonJson implements IYoonFile {
     private String m_strFilePath;
+    private Type m_pType;
+    private Object m_pDocument;
 
     @Override
     public String getFilePath() {
         return m_strFilePath;
+    }
+
+
+    public Type getType() {
+        return m_pType;
+    }
+
+    public void setType(Type pType) {
+        m_pType = pType;
+    }
+
+    public Object getDocument() {
+        return m_pDocument;
+    }
+
+    public void setDocument(Object pObject) {
+        m_pDocument = pObject;
     }
 
     public YoonJson(String strFilePath) {
@@ -38,12 +57,31 @@ public class YoonJson implements IYoonFile {
         return FileFactory.verifyFileExtension(refStrPath, "json", false, false);
     }
 
+    @Override
+    public boolean loadFile() {
+        try {
+            m_pDocument = loadFile(m_pType);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        } finally {
+            if (m_pDocument == null) return false;
+            else return true;
+        }
+    }
+
+    @Override
+    public boolean saveFile() {
+        return saveFile(m_pDocument, m_pType);
+    }
+
     public Object loadFile(Type pType) throws FileNotFoundException {
         if (!isFileExist()) throw new FileNotFoundException();
         try {
             Gson pGson = new Gson();
             FileReader pReader = new FileReader(m_strFilePath);
-            return pGson.fromJson(pReader, pType);
+            m_pType = pType;
+            return pGson.fromJson(pReader, m_pType);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -53,7 +91,8 @@ public class YoonJson implements IYoonFile {
     public boolean saveFile(Object pObject, Type pType) {
         try {
             Gson pGson = new Gson();
-            String strJsonData = pGson.toJson(pObject, pType);
+            m_pType = pType;
+            String strJsonData = pGson.toJson(pObject, m_pType);
             return FileFactory.setTextToFile(m_strFilePath, strJsonData);
         } catch (Exception e) {
             e.printStackTrace();
