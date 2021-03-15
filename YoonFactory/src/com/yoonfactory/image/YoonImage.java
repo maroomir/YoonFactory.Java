@@ -1,9 +1,11 @@
 package com.yoonfactory.image;
 
+import com.yoonfactory.*;
 import com.yoonfactory.file.FileFactory;
 import com.yoonfactory.file.IYoonFile;
 
 import javax.imageio.ImageIO;
+import javax.management.OperationsException;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
@@ -64,6 +66,20 @@ public class YoonImage implements IYoonFile {
         }
     }
 
+    public YoonImage(byte[] pBuffer, int nWidth, int nHeight) throws IOException, OperationsException {
+        if(!fromByteArray(pBuffer))
+            throw new IOException();
+        if(m_pImage.getWidth() != nWidth || m_pImage.getHeight() != nHeight)
+            throw new OperationsException();
+    }
+
+    public YoonImage(int[] pBuffer, int nWidth, int nHeight) throws IOException, OperationsException {
+        if(!fromIntegerArray(pBuffer, nWidth, nHeight))
+            throw new IOException();
+        if(m_pImage.getWidth() != nWidth || m_pImage.getHeight() != nHeight)
+            throw new OperationsException();
+    }
+
     public int getWidth() {
         return m_pImage.getWidth();
     }
@@ -101,7 +117,7 @@ public class YoonImage implements IYoonFile {
         if (pFile instanceof YoonImage) {
             YoonImage pImage = (YoonImage) pFile;
             m_strFilePath = pImage.getFilePath();
-            m_pImage = pImage.toBufferedImage();
+            m_pImage = pImage.copyImage();
         }
     }
 
@@ -159,11 +175,31 @@ public class YoonImage implements IYoonFile {
         return false;
     }
 
-    public BufferedImage toBufferedImage() {
+    public BufferedImage copyImage() {
         ColorModel pModel = m_pImage.getColorModel();
         boolean bAlphaPre = pModel.isAlphaPremultiplied();
         WritableRaster pRaster = m_pImage.copyData(null);
         return new BufferedImage(pModel, pRaster, bAlphaPre, null);
+    }
+
+    public YoonImage cropImage(YoonRect2N pArea) throws IOException, OperationsException {
+        if (pArea.Width <= 0 || pArea.Height <= 0)
+            throw new IllegalArgumentException();
+        if (getPlane() != 1)
+            throw new IOException();
+        byte[] pBufferedResult = new byte[pArea.Width * pArea.Height];
+        byte[] pBufferedSource = toByteArray();
+        for (int iY = 0; iY < pArea.Height; iY++) {
+            int nY = pArea.getTop() + iY;
+            if (nY >= m_pImage.getHeight()) continue;
+            pBufferedResult = new byte[pArea.Width];
+            for (int iX = 0; iX < pArea.Height; iX++) {
+                int nX = pArea.getLeft() + iX;
+                if (nX >= m_pImage.getWidth()) continue;
+                pBufferedResult[iX] = (byte) Math.max(0, Math.min(pBufferedSource[iY * getWidth() + iX], 255));
+            }
+        }
+        return new YoonImage(pBufferedResult, pArea.Width, pArea.Height);
     }
 
     public byte[] toByteArray() throws IOException, NullPointerException {
@@ -183,7 +219,7 @@ public class YoonImage implements IYoonFile {
         throw new IOException();
     }
 
-    public int[] toIntArray() throws IOException, NullPointerException {
+    public int[] toIntegerArray() throws IOException, NullPointerException {
         if (m_pImage == null) throw new NullPointerException();
         if (m_pImage.getType() == BufferedImage.TYPE_INT_RGB || m_pImage.getType() == BufferedImage.TYPE_INT_BGR ||
                 m_pImage.getType() == BufferedImage.TYPE_INT_ARGB || m_pImage.getType() == BufferedImage.TYPE_INT_ARGB_PRE) {
@@ -204,7 +240,7 @@ public class YoonImage implements IYoonFile {
         }
     }
 
-    public boolean fromIntArray(int[] pArray, int nWidth, int nHeight) {
+    public boolean fromIntegerArray(int[] pArray, int nWidth, int nHeight) {
         try {
             int[] pBitMasks = new int[]{0xFF0000, 0xFF00, 0xFF, 0xFF000000}; // RGBA (3, 2, 1, 4)
             SinglePixelPackedSampleModel pModel = new SinglePixelPackedSampleModel(DataBuffer.TYPE_INT, nWidth, nHeight, pBitMasks);
