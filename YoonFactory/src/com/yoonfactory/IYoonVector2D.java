@@ -1,7 +1,7 @@
 package com.yoonfactory;
 
 
-public interface IYoonVector2D<T> extends IYoonVector<T>{
+public interface IYoonVector2D<T> extends IYoonVector<T> {
     T getW();
 
     void setW(T w);
@@ -13,6 +13,10 @@ public interface IYoonVector2D<T> extends IYoonVector<T>{
     T getY();
 
     void setY(T y);
+
+    eYoonDir2D getDirection();
+
+    void setDirection(eYoonDir2D nDir);
 
     IYoonVector scale(T sx, T sy);
 

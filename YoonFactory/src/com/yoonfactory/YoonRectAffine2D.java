@@ -150,4 +150,20 @@ public class YoonRectAffine2D implements IYoonRect<Double> {
     public Double area() {
         return m_dWidth * m_dHeight;
     }
+
+    @Override
+    public boolean isContained(IYoonVector pVector) {
+        if (pVector instanceof YoonVector2D) {
+            if (m_vecCornerRotate_BottomLeft.getX() < ((YoonVector2D) pVector).getX() &&
+                    m_vecCornerRotate_TopLeft.getX() < ((YoonVector2D) pVector).getX() &&
+                    ((YoonVector2D) pVector).getX() < m_vecCornerRotate_BottomRight.getX() &&
+                    ((YoonVector2D) pVector).getX() < m_vecCornerRotate_TopRight.getX() &&
+                    m_vecCornerRotate_TopLeft.getY() < ((YoonVector2D) pVector).getY() &&
+                    m_vecCornerRotate_TopRight.getY() < ((YoonVector2D) pVector).getY() &&
+                    ((YoonVector2D) pVector).getY() < m_vecCornerRotate_BottomLeft.getY() &&
+                    ((YoonVector2D) pVector).getY() < m_vecCornerRotate_BottomRight.getY())
+                return true;
+        }
+        return false;
+    }
 }

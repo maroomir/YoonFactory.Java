@@ -1,11 +1,10 @@
 package com.yoonfactory.image;
 
-import com.yoonfactory.*;
 import com.yoonfactory.file.FileFactory;
 import com.yoonfactory.file.IYoonFile;
 
 import javax.imageio.ImageIO;
-import javax.management.OperationsException;
+import javax.naming.OperationNotSupportedException;
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
@@ -66,18 +65,14 @@ public class YoonImage implements IYoonFile {
         }
     }
 
-    public YoonImage(byte[] pBuffer, int nWidth, int nHeight) throws IOException, OperationsException {
-        if(!fromByteArray(pBuffer))
-            throw new IOException();
-        if(m_pImage.getWidth() != nWidth || m_pImage.getHeight() != nHeight)
-            throw new OperationsException();
+    public YoonImage(byte[] pBuffer) throws OperationNotSupportedException {
+        if (!fromByteArray(pBuffer))
+            throw new OperationNotSupportedException();
     }
 
-    public YoonImage(int[] pBuffer, int nWidth, int nHeight) throws IOException, OperationsException {
-        if(!fromIntegerArray(pBuffer, nWidth, nHeight))
-            throw new IOException();
-        if(m_pImage.getWidth() != nWidth || m_pImage.getHeight() != nHeight)
-            throw new OperationsException();
+    public YoonImage(int[] pBuffer, int nWidth, int nHeight) throws  OperationNotSupportedException {
+        if (!fromIntegerArray(pBuffer, nWidth, nHeight))
+            throw new OperationNotSupportedException();
     }
 
     public int getWidth() {
@@ -180,26 +175,6 @@ public class YoonImage implements IYoonFile {
         boolean bAlphaPre = pModel.isAlphaPremultiplied();
         WritableRaster pRaster = m_pImage.copyData(null);
         return new BufferedImage(pModel, pRaster, bAlphaPre, null);
-    }
-
-    public YoonImage cropImage(YoonRect2N pArea) throws IOException, OperationsException {
-        if (pArea.Width <= 0 || pArea.Height <= 0)
-            throw new IllegalArgumentException();
-        if (getPlane() != 1)
-            throw new IOException();
-        byte[] pBufferedResult = new byte[pArea.Width * pArea.Height];
-        byte[] pBufferedSource = toByteArray();
-        for (int iY = 0; iY < pArea.Height; iY++) {
-            int nY = pArea.getTop() + iY;
-            if (nY >= m_pImage.getHeight()) continue;
-            pBufferedResult = new byte[pArea.Width];
-            for (int iX = 0; iX < pArea.Height; iX++) {
-                int nX = pArea.getLeft() + iX;
-                if (nX >= m_pImage.getWidth()) continue;
-                pBufferedResult[iX] = (byte) Math.max(0, Math.min(pBufferedSource[iY * getWidth() + iX], 255));
-            }
-        }
-        return new YoonImage(pBufferedResult, pArea.Width, pArea.Height);
     }
 
     public byte[] toByteArray() throws IOException, NullPointerException {

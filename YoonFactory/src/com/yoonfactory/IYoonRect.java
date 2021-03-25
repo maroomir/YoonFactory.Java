@@ -20,5 +20,7 @@ public interface IYoonRect<T> {
 
     T area();
 
+    boolean isContained(IYoonVector pVector);
+
     void copyFrom(IYoonRect pRect);
 }
