@@ -27,6 +27,14 @@ public class YoonRectAffine2D implements IYoonRect<Double> {
         return r;
     }
 
+    @Override
+    public boolean equals(IYoonFigure pObject) {
+        if (pObject instanceof YoonRectAffine2D)
+            return ((YoonRectAffine2D) pObject).m_dWidth == m_dWidth && ((YoonRectAffine2D) pObject).m_dHeight == m_dHeight &&
+                    ((YoonRectAffine2D) pObject).m_vecCenter.equals(m_vecCenter) && ((YoonRectAffine2D) pObject).m_dRotation == m_dRotation;
+        return false;
+    }
+
     public void copyFrom(IYoonRect pRect) {
         if (pRect instanceof YoonRectAffine2D) {
             YoonRectAffine2D rect = (YoonRectAffine2D) pRect;

@@ -1,6 +1,6 @@
 package com.yoonfactory;
 
-public interface IYoonTriangle<T> {
+public interface IYoonTriangle<T> extends IYoonFigure {
     T getX();
 
     T setX(T x);

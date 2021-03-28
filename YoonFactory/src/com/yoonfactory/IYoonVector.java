@@ -1,6 +1,6 @@
 package com.yoonfactory;
 
-public interface IYoonVector<T> {
+public interface IYoonVector<T> extends IYoonFigure {
     int getCount();
 
     void copyFrom(IYoonVector pVector);

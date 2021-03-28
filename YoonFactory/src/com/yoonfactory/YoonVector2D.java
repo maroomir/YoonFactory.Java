@@ -30,6 +30,13 @@ public class YoonVector2D implements IYoonVector<Double>, IYoonVector2D<Double> 
         return v;
     }
 
+    @Override
+    public boolean equals(IYoonFigure pObject) {
+        if (pObject instanceof YoonVector2D)
+            return ((YoonVector2D) pObject).Array[0] == Array[0] && ((YoonVector2D) pObject).Array[1] == Array[1] && ((YoonVector2D) pObject).Array[2] == Array[2];
+        return false;
+    }
+
     private static final double DELTA = 0.0000000000001;
 
     @Override

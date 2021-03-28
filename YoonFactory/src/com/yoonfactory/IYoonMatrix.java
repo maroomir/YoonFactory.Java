@@ -1,6 +1,6 @@
 package com.yoonfactory;
 
-public interface IYoonMatrix<T> {
+public interface IYoonMatrix<T> extends Cloneable{
 
     int getLength();
 

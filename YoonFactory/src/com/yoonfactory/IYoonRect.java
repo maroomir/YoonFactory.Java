@@ -1,6 +1,6 @@
 package com.yoonfactory;
 
-public interface IYoonRect<T> {
+public interface IYoonRect<T> extends IYoonFigure {
 
     T getLeft();
 

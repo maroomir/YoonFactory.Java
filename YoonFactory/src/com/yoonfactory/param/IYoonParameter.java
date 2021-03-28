@@ -2,7 +2,7 @@ package com.yoonfactory.param;
 
 public interface IYoonParameter {
 
-    boolean isEqual(IYoonParameter pParam);
+    boolean eqauls(IYoonParameter pParam);
 
     void copyFrom(IYoonParameter pParam);
 }

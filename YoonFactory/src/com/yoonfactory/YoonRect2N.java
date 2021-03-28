@@ -15,6 +15,13 @@ public class YoonRect2N implements IYoonRect<Integer> {
         return r;
     }
 
+    @Override
+    public boolean equals(IYoonFigure pObject) {
+        if (pObject instanceof YoonRect2N)
+            return ((YoonRect2N) pObject).CenterPos.equals(CenterPos) && ((YoonRect2N) pObject).Width == Width && ((YoonRect2N) pObject).Height == Height;
+        return false;
+    }
+
     public void copyFrom(IYoonRect pRect) {
         if (pRect instanceof YoonRect2N) {
             YoonRect2N rect = (YoonRect2N) pRect;

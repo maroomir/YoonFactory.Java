@@ -36,7 +36,7 @@ public class YoonParameter {
     }
 
     public boolean isEqual(YoonParameter pParam) {
-        return pParam.Parameter.isEqual(Parameter) && pParam.getType() == m_pTypeParam && pParam.RootDirectory == RootDirectory;
+        return pParam.Parameter.eqauls(Parameter) && pParam.getType() == m_pTypeParam && pParam.RootDirectory == RootDirectory;
     }
 
     public boolean saveParameter() {

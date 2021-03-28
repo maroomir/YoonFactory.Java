@@ -15,6 +15,14 @@ public class YoonRect2D implements IYoonRect<Double> {
         return r;
     }
 
+    @Override
+    public boolean equals(IYoonFigure pObject) {
+        if (pObject instanceof YoonRect2D)
+            return ((YoonRect2D) pObject).Width == Width && ((YoonRect2D) pObject).Height == Height &&
+                    ((YoonRect2D) pObject).CenterPos.equals(CenterPos);
+        return false;
+    }
+
     public void copyFrom(IYoonRect pRect) {
         if (pRect instanceof YoonRect2D) {
             YoonRect2D rect = (YoonRect2D) pRect;

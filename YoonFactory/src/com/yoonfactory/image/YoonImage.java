@@ -1,5 +1,6 @@
 package com.yoonfactory.image;
 
+import com.yoonfactory.YoonRect2N;
 import com.yoonfactory.file.FileFactory;
 import com.yoonfactory.file.IYoonFile;
 
@@ -14,8 +15,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public class YoonImage implements IYoonFile {
     public final int DEFAULT_WIDTH = 640;
     public final int DEFAULT_HEIGHT = 480;
-    private String m_strFilePath = "";
-    private BufferedImage m_pImage = null;
+    protected BufferedImage m_pImage = null;
+    protected String m_strFilePath = "";
 
     @Override
     public String getFilePath() {
@@ -168,6 +169,10 @@ public class YoonImage implements IYoonFile {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public boolean isVerifiedArea(YoonRect2N pArea) {
+        return pArea.getLeft() >= 0 && pArea.getTop() >= 0 && pArea.getRight() <= m_pImage.getWidth() && pArea.getBottom() <= m_pImage.getHeight();
     }
 
     public BufferedImage copyImage() {
