@@ -12,7 +12,7 @@ public class ParameterTcp implements IYoonParameter {
     }
 
     @Override
-    public boolean isEqual(IYoonParameter iYoonParameter) {
+    public boolean eqauls(IYoonParameter iYoonParameter) {
         if (iYoonParameter instanceof ParameterTcp) {
             ParameterTcp pParam = (ParameterTcp) iYoonParameter;
             if (pParam.ipAddress == ipAddress &&

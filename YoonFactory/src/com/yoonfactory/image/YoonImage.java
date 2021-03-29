@@ -182,6 +182,14 @@ public class YoonImage implements IYoonFile {
         return new BufferedImage(pModel, pRaster, bAlphaPre, null);
     }
 
+    public YoonImage cropImage(YoonRect2N pArea) {
+        if (!isVerifiedArea(pArea))
+            throw new IllegalArgumentException();
+        YoonImage pCropImage = new YoonImage();
+        pCropImage.m_pImage = m_pImage.getSubimage(pArea.getLeft(), pArea.getTop(), pArea.Width, pArea.Height);
+        return pCropImage;
+    }
+
     public byte[] toByteArray() throws IOException, NullPointerException {
         if (m_pImage == null) throw new NullPointerException();
         ByteArrayOutputStream pStream = new ByteArrayOutputStream();
