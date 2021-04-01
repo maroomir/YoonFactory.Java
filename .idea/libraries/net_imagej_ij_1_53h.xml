@@ -3,6 +3,7 @@
     <properties maven-id="net.imagej:ij:1.53h" />
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/ij-1.53h.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tools.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

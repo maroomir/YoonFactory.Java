@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="YoonFactory.Java:jar" />
+      <artifact name="YoonFactory" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -10,13 +10,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Add YoonSample.TCPForm (Init commit)">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/org_openpnp_opencv_4_5_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/cv/CVImage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/YoonFactory.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ij-1.53h.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/opencv-4.5.1-2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/tools.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/YoonFactory_Java_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/YoonFactory_Java.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/YoonFactory_Java.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/net_imagej_ij_1_53h.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/net_imagej_ij_1_53h.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YoonFactory.Java.iml" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory.Java.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/YoonImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/YoonImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/imagej/Filters.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/imagej/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/ParameterTcp.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonSample.TCPForm/src/ParameterTcp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/YoonSample.TCPForm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/YoonSample.TCPForm/YoonSample.TCPForm.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +61,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
@@ -91,6 +94,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="" />

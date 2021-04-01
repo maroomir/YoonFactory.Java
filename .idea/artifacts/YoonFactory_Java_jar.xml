@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="YoonFactory.Java:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/YoonFactory_Java_jar</output-path>
-    <root id="archive" name="YoonFactory.Java.jar">
-      <element id="module-output" name="YoonFactory.Java" />
-    </root>
-  </artifact>
-</component>
