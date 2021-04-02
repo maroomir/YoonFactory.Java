@@ -1,15 +1,14 @@
 package com.yoonfactory.image;
 
-import javax.naming.OperationNotSupportedException;
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Filter {
 
-    public static YoonImage sobel(YoonImage pSourceImage, int nIntensity, boolean bCombine) throws IOException, OperationNotSupportedException {
+    public static YoonImage sobel(YoonImage pSourceImage, int nIntensity, boolean bCombine) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(sobel(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nIntensity, bCombine));
+        return new YoonImage(sobel(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nIntensity, bCombine),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] sobel(byte[] pBuffer, int width, int height, int nIntensity, boolean bCombineSource) {
@@ -60,10 +59,11 @@ public class Filter {
         return pResultBuffer;
     }
 
-    public static YoonImage laplacian(YoonImage pSourceImage, int nIntensity, boolean bCombine) throws IOException, OperationNotSupportedException {
+    public static YoonImage laplacian(YoonImage pSourceImage, int nIntensity, boolean bCombine) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(laplacian(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nIntensity, bCombine));
+        return new YoonImage(laplacian(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nIntensity, bCombine),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] laplacian(byte[] pBuffer, int width, int height, int Intensity, boolean bCombineSource) {
@@ -90,10 +90,11 @@ public class Filter {
         return pResultBuffer;
     }
 
-    public static YoonImage rc1D(YoonImage pSourceImage, double dFrequency, boolean bCombine) throws IOException, OperationNotSupportedException {
+    public static YoonImage rc1D(YoonImage pSourceImage, double dFrequency, boolean bCombine) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(rc1D(pSourceImage.toByteArray(), pSourceImage.getWidth(), dFrequency, bCombine));
+        return new YoonImage(rc1D(pSourceImage.toByteArray(), pSourceImage.getWidth(), dFrequency, bCombine),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] rc1D(byte[] pBuffer, int size, double frequency, boolean bCombineSource) {
@@ -140,10 +141,11 @@ public class Filter {
         return pResultBuffer;
     }
 
-    public static YoonImage rc2D(YoonImage pSourceImage, double dFrequency, boolean bCombine) throws IOException, OperationNotSupportedException {
+    public static YoonImage rc2D(YoonImage pSourceImage, double dFrequency, boolean bCombine) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(rc2D(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), dFrequency, bCombine));
+        return new YoonImage(rc2D(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), dFrequency, bCombine),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] rc2D(byte[] pBuffer, int width, int height, double frequency, boolean bSumSource) {
@@ -213,10 +215,11 @@ public class Filter {
         return pResultBuffer;
     }
 
-    public static YoonImage level2D(YoonImage pSourceImage, AtomicReference<Double> refSum) throws IOException, OperationNotSupportedException {
+    public static YoonImage level2D(YoonImage pSourceImage, AtomicReference<Double> refSum) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(level2D(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), refSum));
+        return new YoonImage(level2D(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), refSum),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] level2D(byte[] pBuffer, int width, int height, AtomicReference<Double> refSum) {
@@ -300,10 +303,11 @@ public class Filter {
         return pResultBuffer;
     }
 
-    public static YoonImage demargin2D(YoonImage pSourceImage) throws IOException, OperationNotSupportedException {
+    public static YoonImage demargin2D(YoonImage pSourceImage) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(demargin2D(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()));
+        return new YoonImage(demargin2D(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] demargin2D(byte[] pBuffer, int width, int height) {
@@ -356,10 +360,11 @@ public class Filter {
         return pResultBuffer;
     }
 
-    public static YoonImage smooth1D(YoonImage pSourceImage, int nMargin, int nStep) throws IOException, OperationNotSupportedException {
+    public static YoonImage smooth1D(YoonImage pSourceImage, int nMargin, int nStep) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(smooth1D(pSourceImage.toByteArray(), pSourceImage.getWidth() * pSourceImage.getHeight(), nMargin, nStep));
+        return new YoonImage(smooth1D(pSourceImage.toByteArray(), pSourceImage.getWidth() * pSourceImage.getHeight(), nMargin, nStep),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] smooth1D(byte[] pBuffer, int bufferSize, int margin, int step) {
@@ -389,10 +394,11 @@ public class Filter {
         return pResultBuffer;
     }
 
-    public static YoonImage smooth2D(YoonImage pSourceImage, int nStep) throws IOException, OperationNotSupportedException {
+    public static YoonImage smooth2D(YoonImage pSourceImage, int nStep) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(smooth2D(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nStep));
+        return new YoonImage(smooth2D(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nStep),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] smooth2D(byte[] pBuffer, int width, int height, int nBlurStep) {

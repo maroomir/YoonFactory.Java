@@ -1,13 +1,11 @@
 package com.yoonfactory.comm;
 
 import com.yoonfactory.eYoonStatus;
-import org.springframework.util.StopWatch;
 
 import java.net.Socket;
 
 class RetryClientRunnable implements Runnable {
 
-    private final StopWatch m_pStopWatch = new StopWatch();
     private final Socket m_clientSocket;
     private final int m_nRetryCount;
     private final int m_nTimeout;
@@ -26,13 +24,12 @@ class RetryClientRunnable implements Runnable {
     @Override
     public void run() {
         if (m_clientSocket == null) return;
-        m_pStopWatch.stop();
-        m_pStopWatch.start();
+        long nTimeStart = System.currentTimeMillis();
         CommEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Info, "Retry Client Start");
         try {
             for (int iRetry = 0; iRetry < m_nRetryCount; iRetry++) {
                 //// Error : Timeout
-                if (m_pStopWatch.getTotalTimeMillis() >= m_nTimeout)
+                if (System.currentTimeMillis() - nTimeStart >= m_nTimeout)
                     break;
                 //// Error : Retry Listen is false suddenly
                 if (!m_bRetryOpen)
@@ -47,7 +44,6 @@ class RetryClientRunnable implements Runnable {
                 }
                 CommEventHandler.callRetryOpenEvent(RetryClientRunnable.class);
             }
-            m_pStopWatch.stop();
 
             if (m_clientSocket == null) {
                 CommEventHandler.callShowMessageEvent(RetryClientRunnable.class, eYoonStatus.Error, "Connection Retry Failure : Connection Socket Empty");
