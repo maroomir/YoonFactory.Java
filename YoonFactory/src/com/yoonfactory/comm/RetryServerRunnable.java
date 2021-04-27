@@ -1,13 +1,11 @@
 package com.yoonfactory.comm;
 
 import com.yoonfactory.eYoonStatus;
-import org.springframework.util.StopWatch;
 
 import java.net.ServerSocket;
 
 class RetryServerRunnable implements Runnable {
 
-    private final StopWatch m_pStopWatch = new StopWatch();
     private final ServerSocket m_serverSocket;
     private final int m_nRetryCount;
     private final int m_nTimeout;
@@ -26,13 +24,12 @@ class RetryServerRunnable implements Runnable {
     @Override
     public void run() {
         if (m_serverSocket == null) return;
-        m_pStopWatch.stop();
-        m_pStopWatch.start();
+        long nTimeStart = System.currentTimeMillis();
         CommEventHandler.callShowMessageEvent(RetryServerRunnable.class, eYoonStatus.Info, "Retry Server Start");
         try {
             for (int iRetry = 0; iRetry < m_nRetryCount; iRetry++) {
                 //// Error : Timeout
-                if (m_pStopWatch.getTotalTimeMillis() >= m_nTimeout)
+                if (System.currentTimeMillis() - nTimeStart >= m_nTimeout)
                     break;
                 //// Error : Retry Listen is false suddenly
                 if (!m_bRetryOpen)
@@ -47,7 +44,6 @@ class RetryServerRunnable implements Runnable {
                 }
                 CommEventHandler.callRetryOpenEvent(RetryServerRunnable.class);
             }
-            m_pStopWatch.stop();
 
             if (m_serverSocket == null) {
                 CommEventHandler.callShowMessageEvent(RetryServerRunnable.class, eYoonStatus.Error, "Listen Retry Failure : Listen Socket Empty");

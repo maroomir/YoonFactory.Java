@@ -2,14 +2,11 @@ package com.yoonfactory.image;
 
 import com.yoonfactory.YoonRect2N;
 
-import javax.naming.OperationNotSupportedException;
-import java.io.IOException;
-
 public class Binary {
-    public static YoonImage binarize(YoonImage pSourceImage, YoonRect2N scanArea, byte nThreshold) throws IOException, OperationNotSupportedException {
+    public static YoonImage binarize(YoonImage pSourceImage, YoonRect2N scanArea, byte nThreshold) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
-        return new YoonImage(binarize(pSourceImage.toByteArray(), pSourceImage.getWidth(), scanArea, nThreshold));
+        return new YoonImage(binarize(pSourceImage.toByteArray(), pSourceImage.getWidth(), scanArea, nThreshold), pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] binarize(byte[] pBuffer, int bufferWidth, YoonRect2N scanArea, byte threshold) {
@@ -25,10 +22,10 @@ public class Binary {
         return pResultBuffer;
     }
 
-    public static YoonImage binarize(YoonImage pSourceImage, byte nThreshold) throws IOException, OperationNotSupportedException {
+    public static YoonImage binarize(YoonImage pSourceImage, byte nThreshold) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
-        return new YoonImage(binarize(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nThreshold));
+        return new YoonImage(binarize(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nThreshold), pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] binarize(byte[] pBuffer, int bufferWidth, int bufferHeight, byte threshold) {

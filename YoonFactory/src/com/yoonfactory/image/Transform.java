@@ -2,15 +2,15 @@ package com.yoonfactory.image;
 
 import com.yoonfactory.YoonVector2N;
 
-import javax.naming.OperationNotSupportedException;
 import java.io.IOException;
 
 public class Transform {
 
     //  Image 확대, 축소하기.
-    public static YoonImage zoom(YoonImage pSourceImage, double dRatio) throws IOException, OperationNotSupportedException {
+    public static YoonImage zoom(YoonImage pSourceImage, double dRatio) throws IOException {
         if (pSourceImage.getPlane() == 1)
-            return new YoonImage(zoom(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), dRatio));
+            return new YoonImage(zoom(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), dRatio),
+                    pSourceImage.getWidth(), pSourceImage.getHeight());
         else if (pSourceImage.getPlane() == 4)
             return new YoonImage(zoom(pSourceImage.toIntegerArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), dRatio),
                     pSourceImage.getWidth(), pSourceImage.getHeight());
@@ -18,9 +18,10 @@ public class Transform {
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
     }
 
-    public static YoonImage zoom(YoonImage pSourceImage, double dRatioX, double dRatioY) throws IOException, OperationNotSupportedException {
+    public static YoonImage zoom(YoonImage pSourceImage, double dRatioX, double dRatioY) throws IOException {
         if (pSourceImage.getPlane() == 1)
-            return new YoonImage(zoom(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), dRatioX, dRatioY));
+            return new YoonImage(zoom(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), dRatioX, dRatioY),
+                    pSourceImage.getWidth(), pSourceImage.getHeight());
         else if (pSourceImage.getPlane() == 4)
             return new YoonImage(zoom(pSourceImage.toIntegerArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), dRatioX, dRatioY),
                     pSourceImage.getWidth(), pSourceImage.getHeight());
@@ -117,10 +118,11 @@ public class Transform {
     }
 
     //  회전.
-    public static YoonImage rotate(YoonImage pSourceImage, YoonVector2N vecCenter, double dAngle) throws IOException, OperationNotSupportedException {
+    public static YoonImage rotate(YoonImage pSourceImage, YoonVector2N vecCenter, double dAngle) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
-        return new YoonImage(rotate(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), vecCenter.getX(), vecCenter.getY(), dAngle));
+        return new YoonImage(rotate(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), vecCenter.getX(), vecCenter.getY(), dAngle),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] rotate(byte[] pBuffer, int bufferWidth, int bufferHeight, int centerX, int centerY, double angle) {
@@ -171,10 +173,11 @@ public class Transform {
     }
 
     //  Image 반전.
-    public static YoonImage reverse(YoonImage pSourceImage) throws IOException, OperationNotSupportedException {
+    public static YoonImage reverse(YoonImage pSourceImage) {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
-        return new YoonImage(reverse(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()));
+        return new YoonImage(reverse(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] reverse(byte[] pBuffer, int bufferWidth, int bufferHeight) {

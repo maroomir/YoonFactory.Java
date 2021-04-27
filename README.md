@@ -17,6 +17,3 @@ Parants 대비 구현 사항은 다음과 같습니다.
 - YoonFile의 주요 Component
 - YoonImage의 주요 Component
 - YoonParameter의 주요 Component
-
-Parants에서 Java에 맞게 특화되어 추가될 예정인 사항으 다음과 같습니.
-- ImageJ Algorithm을 사용한 전문 Image Processing

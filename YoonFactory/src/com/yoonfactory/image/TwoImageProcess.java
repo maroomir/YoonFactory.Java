@@ -1,16 +1,16 @@
 package com.yoonfactory.image;
 
-import javax.naming.OperationNotSupportedException;
 import java.io.IOException;
 
 public class TwoImageProcess {
 
-    public static YoonImage combine(YoonImage pSourceImage, YoonImage pObjectImage) throws IOException, OperationNotSupportedException {
+    public static YoonImage combine(YoonImage pSourceImage, YoonImage pObjectImage) {
         if (pSourceImage.getWidth() != pObjectImage.getWidth() || pSourceImage.getHeight() != pObjectImage.getHeight())
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Source and object size is not same");
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(combine(pSourceImage.toByteArray(), pObjectImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()));
+        return new YoonImage(combine(pSourceImage.toByteArray(), pObjectImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] combine(byte[] pSourceBuffer, byte[] pObjectBuffer, int width, int height) {
@@ -28,12 +28,13 @@ public class TwoImageProcess {
         return pResultBuffer;
     }
 
-    public static YoonImage add(YoonImage pSourceImage, YoonImage pObjectImage) throws IOException, OperationNotSupportedException {
+    public static YoonImage add(YoonImage pSourceImage, YoonImage pObjectImage) {
         if (pSourceImage.getWidth() != pObjectImage.getWidth() || pSourceImage.getHeight() != pObjectImage.getHeight())
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Source and object size is not same");
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(add(pSourceImage.toByteArray(), pObjectImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()));
+        return new YoonImage(add(pSourceImage.toByteArray(), pObjectImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] add(byte[] pSourceBuffer, byte[] pObjectBuffer, int width, int height) {
@@ -74,12 +75,13 @@ public class TwoImageProcess {
         return pResultBuffer;
     }
 
-    public static YoonImage subtract(YoonImage pSourceImage, YoonImage pObjectImage) throws IOException, OperationNotSupportedException {
+    public static YoonImage subtract(YoonImage pSourceImage, YoonImage pObjectImage) {
         if (pSourceImage.getWidth() != pObjectImage.getWidth() || pSourceImage.getHeight() != pObjectImage.getHeight())
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Source and object size is not same");
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image arguments is not 8bit format");
-        return new YoonImage(subtract(pSourceImage.toByteArray(), pObjectImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()));
+        return new YoonImage(subtract(pSourceImage.toByteArray(), pObjectImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
+                pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
     public static byte[] subtract(byte[] pSourceBuffer, byte[] pObjectBuffer, int width, int height) {
