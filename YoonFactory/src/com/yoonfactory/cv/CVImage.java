@@ -18,15 +18,15 @@ import java.nio.ByteBuffer;
 public class CVImage extends YoonImage {
 
     public CVImage(Mat pMat) throws OperationNotSupportedException {
-        if (!fromMat(pMat))
+        if (!fromMatrix(pMat))
             throw new OperationNotSupportedException();
     }
 
     public Mat copyMat() {
-        return toMat().clone();
+        return toMatrix().clone();
     }
 
-    public Mat toMat() {
+    public Mat toMatrix() {
         byte[] pBuffer = ((DataBufferByte) m_pImage.getRaster().getDataBuffer()).getData();
         int nTypeMat = CvType.CV_8U;
         switch (m_pImage.getType()) {
@@ -57,7 +57,7 @@ public class CVImage extends YoonImage {
         return new Mat(getWidth(), getHeight(), nTypeMat, ByteBuffer.wrap(pBuffer));
     }
 
-    public boolean fromMat(Mat pMat) {
+    public boolean fromMatrix(Mat pMat) {
         try {
             MatOfByte pBufferMat = new MatOfByte();
             Imgcodecs.imencode(".jpg", pMat, pBufferMat); // Encoding
