@@ -1,218 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="YoonFactory.Java:jar" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="Add YoonSample.TCPForm (Init commit)">
-      <change afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/cv/Filter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/ij-1.53h.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/opencv-4.5.1-2.jar" afterDir="false" />
+    <list default="true" id="56a4fe21-36a4-4950-b3b9-b52767e4ec7f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/YoonFactory.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/YoonFactory_Java.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_ini4j_ini4j_0_5_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_jetbrains_annotations_18_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/org_rxtx_rxtx_2_1_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_5_2021_8_12_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/cv/CVImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/cv/CVImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory.Java.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/.idea/artifacts/YoonFactory_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/YoonFactory.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/BitConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonFigure.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonMatrix.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonMatrix2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonMatrix3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonRect.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonResult.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonSection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonTriangle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonVector.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonVector2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/IYoonVector3D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/MathFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonMatrix2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonMatrix2N.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonMatrix2X2Double.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonMatrix2X2Int.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonMatrix3X3Double.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonMatrix3X3Int.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonRect2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonRect2N.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonRectAffine2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonVector2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/YoonVector2N.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/ActiveSerialRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/ActiveTcpRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/CommEventHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/IReceiveMessageEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/IRetryOpenEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/IShowMessageEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/IYoonComm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/IYoonSerial.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/IYoonTcpIp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/RetryClientRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/RetryServerRunnable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/YoonClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/YoonServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/comm/eStepCommThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/cv/CVImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/cv/Filter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/eYoonDir2D.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/eYoonDirMode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/eYoonStatus.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/FileFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/IYoonFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonIni.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonJson.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/file/YoonXml.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/Binary.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/Converter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/Filter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/Morphology.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/PatternMatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/Transform.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/TwoImageProcess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/YoonImage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/image/YoonObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/IProcessLogEventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/IYoonLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/LogEventHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/YoonConsoler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/log/YoonDisplayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/param/IYoonContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/param/IYoonParameter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/param/IYoonTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/param/YoonContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/param/YoonParameter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonFactory/src/com/yoonfactory/param/YoonTemplate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/YoonSample.TCPForm.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/CommonClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/MainForm.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/MainForm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/YoonSample.TCPForm/src/ParameterTcp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/annotations-18.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/gson-2.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ij-1.53h.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ini4j-0.5.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/opencv-4.5.1-2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/rxtx-2.1.7.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="ProjectId" id="1lhKbfrkDyNDustA4XmUcYgdAVF" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1rvfBEVmcwqt4roFKXThKD9bctG" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.yoonfactory.comm" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.yoonfactory.comm" />
-      <recent name="com.yoonfactory.serial" />
-      <recent name="YoonTcpIp" />
-      <recent name="YoonFile" />
-      <recent name="YoonCommon" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="MainForm" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MainForm" />
-      <module name="YoonSample.TCPForm" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.MainForm" />
-      </list>
-    </recent_temporary>
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="185475cf-9ee5-40bc-a6a0-72ca7d32d23a" name="Default Changelist" comment="" />
-      <created>1608043956650</created>
+      <changelist id="56a4fe21-36a4-4950-b3b9-b52767e4ec7f" name="Default Changelist" comment="" />
+      <created>1619861348215</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1608043956650</updated>
+      <updated>1619861348215</updated>
     </task>
-    <task id="LOCAL-00001" summary="Optimize in JavaSDK 15">
-      <created>1609144600495</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1609144600495</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Fixed the Language and roop-condition on YoonServer">
-      <created>1610293100097</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1610293100097</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Add the YoonLog Package">
-      <created>1610727849801</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1610727849801</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Code Analysis and Optimize">
-      <created>1610728735123</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1610728735123</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Change the folder Names [TEMP]">
-      <created>1612441546298</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1612441546298</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Add YoonSample.TCPForm (Init commit)">
-      <created>1612846384696</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1612846384696</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Append YoonSample.TCPForm modules">
-      <created>1613033697100</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1613033697100</updated>
-    </task>
-    <task id="LOCAL-00008" summary="[MODIFIED] Add the YoonImage Static Library (PM, Filter, TIP)">
-      <created>1616929134339</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1616929134339</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/master" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Optimize in JavaSDK 15" />
-    <MESSAGE value="Fixed the Language and roop-condition on YoonServer" />
-    <MESSAGE value="Add the YoonLog Package" />
-    <MESSAGE value="Code Analysis and Optimize" />
-    <MESSAGE value="Reinforcement to YoonContainer" />
-    <MESSAGE value="Change the package root to com.yoonfactory.*" />
-    <MESSAGE value="Change the folder Names [TEMP]" />
-    <MESSAGE value="Change the folder Names [Completed]" />
-    <MESSAGE value="Add YoonSample.TCPForm (Init commit)" />
-    <MESSAGE value="Append YoonSample.TCPForm modules" />
-    <MESSAGE value="[RELEASE][MASTER] YoonFactory Default Module Update" />
-    <MESSAGE value="[MODIFIED] Add the YoonImage Static Library (PM, Filter, TIP)" />
-    <option name="LAST_COMMIT_MESSAGE" value="[MODIFIED] Add the YoonImage Static Library (PM, Filter, TIP)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jar://$PROJECT_DIR$/lib/gson-2.8.6.jar!/com/google/gson/Gson.class</url>
-          <line>80</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NoClassDefFoundError" package="java.lang" />
-          <option name="timeStamp" value="23" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="30" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
