@@ -9,6 +9,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/YoonSample.TCPForm" />
+            <option value="$PROJECT_DIR$/yooncomm" />
+            <option value="$PROJECT_DIR$/yooncv" />
+            <option value="$PROJECT_DIR$/yoonfactory" />
+            <option value="$PROJECT_DIR$/yoonfile" />
+            <option value="$PROJECT_DIR$/yoonimage" />
+            <option value="$PROJECT_DIR$/yoonlog" />
+            <option value="$PROJECT_DIR$/yoonparam" />
           </set>
         </option>
       </GradleProjectSettings>

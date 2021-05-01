@@ -1,2 +1,10 @@
 rootProject.name = 'YoonFactory.Java'
+include 'yoonfactory'
+include 'yoonimage'
+include 'yooncomm'
+include 'yooncv'
+include 'yoonfile'
+include 'yoonlog'
+include 'yoonparam'
+include 'YoonSample.TCPForm'
 
