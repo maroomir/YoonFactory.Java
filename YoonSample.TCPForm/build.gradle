@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'com.yoonsample'
@@ -17,6 +18,10 @@ dependencies {
     implementation project(path: ':yooncomm')
     implementation project(path: ':yoonparam')
     implementation project(path: ':yoonlog')
+}
+
+application {
+    mainClass = 'MainForm'
 }
 
 test {

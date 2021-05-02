@@ -100,14 +100,14 @@ public class YoonDisplayer implements IYoonLog {
     private String getCurrentMonthDirectory() {
         Calendar pCalCurrent = Calendar.getInstance();
         return Paths.get(m_strRootDirectory, Integer.toString(pCalCurrent.get(Calendar.YEAR)),
-                Integer.toString(pCalCurrent.get(Calendar.MONTH))).toString();
+                Integer.toString(pCalCurrent.get(Calendar.MONTH) + 1)).toString();  // Month (0~11)
     }
 
     private String getPreMonthDirectory() {
         Calendar pCal = Calendar.getInstance();
         pCal.add(Calendar.MONTH, -1);
         return Paths.get(m_strRootDirectory, Integer.toString(pCal.get(Calendar.YEAR)),
-                Integer.toString(pCal.get(Calendar.MONTH))).toString();
+                Integer.toString(pCal.get(Calendar.MONTH) + 1)).toString();  // MONTH (0~11)
     }
 
     private void writeDisplayLog(String strMessage) {
