@@ -1,10 +1,11 @@
 package com.yoonfactory.image;
 
+import javax.naming.OperationNotSupportedException;
 import java.io.IOException;
 
 public class TwoImageProcess {
 
-    public static YoonImage combine(YoonImage pSourceImage, YoonImage pObjectImage) {
+    public static YoonImage combine(YoonImage pSourceImage, YoonImage pObjectImage) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getWidth() != pObjectImage.getWidth() || pSourceImage.getHeight() != pObjectImage.getHeight())
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Source and object size is not same");
         if (pSourceImage.getPlane() != 1)
@@ -28,7 +29,7 @@ public class TwoImageProcess {
         return pResultBuffer;
     }
 
-    public static YoonImage add(YoonImage pSourceImage, YoonImage pObjectImage) {
+    public static YoonImage add(YoonImage pSourceImage, YoonImage pObjectImage) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getWidth() != pObjectImage.getWidth() || pSourceImage.getHeight() != pObjectImage.getHeight())
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Source and object size is not same");
         if (pSourceImage.getPlane() != 1)
@@ -75,7 +76,7 @@ public class TwoImageProcess {
         return pResultBuffer;
     }
 
-    public static YoonImage subtract(YoonImage pSourceImage, YoonImage pObjectImage) {
+    public static YoonImage subtract(YoonImage pSourceImage, YoonImage pObjectImage) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getWidth() != pObjectImage.getWidth() || pSourceImage.getHeight() != pObjectImage.getHeight())
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Source and object size is not same");
         if (pSourceImage.getPlane() != 1)

@@ -5,7 +5,6 @@ import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.concurrent.atomic.AtomicReference;
 

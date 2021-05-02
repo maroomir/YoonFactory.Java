@@ -7,11 +7,28 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url "https://repo1.maven.org/maven2/"
+    }
 }
 
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
+    implementation project(path: ':yoonfactory')
+}
+
+def libpath = '../../../libs/'
+jar {
+    manifest {
+        attributes 'Title': 'YoonComm', 'Version': version
+    }
+    archiveName libpath + archiveName
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 test {

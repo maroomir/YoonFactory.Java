@@ -2,17 +2,20 @@ package com.yoonfactory.image;
 
 import com.yoonfactory.YoonRect2N;
 
+import javax.naming.OperationNotSupportedException;
+import java.io.IOException;
+
 public class Morphology {
 
     //  침식 연산.
-    public static YoonImage erosion(YoonImage pSourceImage) {
+    public static YoonImage erosion(YoonImage pSourceImage) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(erosion(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
                 pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
-    public static YoonImage erosion(YoonImage pSourceImage, YoonRect2N scanArea) {
+    public static YoonImage erosion(YoonImage pSourceImage, YoonRect2N scanArea) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(erosion(pSourceImage.toByteArray(), pSourceImage.getWidth(), scanArea),
@@ -81,21 +84,21 @@ public class Morphology {
         return pResultBuffer;
     }
 
-    public static YoonImage erosionAsBinary(YoonImage pSourceImage) {
+    public static YoonImage erosionAsBinary(YoonImage pSourceImage) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(erosionAsBinary(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
                 pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
-    public static YoonImage erosionAsBinary(YoonImage pSourceImage, int nMophSize) {
+    public static YoonImage erosionAsBinary(YoonImage pSourceImage, int nMophSize) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(erosionAsBinary(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nMophSize),
                 pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
-    public static YoonImage erosionAsBinary(YoonImage pSourceImage, YoonRect2N scanArea) {
+    public static YoonImage erosionAsBinary(YoonImage pSourceImage, YoonRect2N scanArea) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(erosionAsBinary(pSourceImage.toByteArray(), pSourceImage.getWidth(), scanArea),
@@ -209,14 +212,14 @@ public class Morphology {
     }
 
     //  팽장 연산.
-    public static YoonImage dilation(YoonImage pSourceImage) {
+    public static YoonImage dilation(YoonImage pSourceImage) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(dilation(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
                 pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
-    public static YoonImage dilation(YoonImage pSourceImage, YoonRect2N scanArea) {
+    public static YoonImage dilation(YoonImage pSourceImage, YoonRect2N scanArea) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(dilation(pSourceImage.toByteArray(), pSourceImage.getWidth(), scanArea),
@@ -285,28 +288,28 @@ public class Morphology {
         return pResultBuffer;
     }
 
-    public static YoonImage dilationAsBinary(YoonImage pSourceImage) {
+    public static YoonImage dilationAsBinary(YoonImage pSourceImage) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(dilationAsBinary(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight()),
                 pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
-    public static YoonImage dilationAsBinary(YoonImage pSourceImage, int nMophSize) {
+    public static YoonImage dilationAsBinary(YoonImage pSourceImage, int nMophSize) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(dilationAsBinary(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), nMophSize),
                 pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
-    public static YoonImage dilationAsBinary(YoonImage pSourceImage, YoonRect2N scanArea) {
+    public static YoonImage dilationAsBinary(YoonImage pSourceImage, YoonRect2N scanArea) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(dilationAsBinary(pSourceImage.toByteArray(), pSourceImage.getWidth(), scanArea),
                 pSourceImage.getWidth(), pSourceImage.getHeight());
     }
 
-    public static YoonImage dilationAsBinary(YoonImage pSourceImage, YoonRect2N scanArea, int nMophSize) {
+    public static YoonImage dilationAsBinary(YoonImage pSourceImage, YoonRect2N scanArea, int nMophSize) throws IOException, OperationNotSupportedException {
         if (pSourceImage.getPlane() != 1)
             throw new IllegalArgumentException("[YOONIMAGE EXCEPTION] Image format is not correct");
         return new YoonImage(dilationAsBinary(pSourceImage.toByteArray(), pSourceImage.getWidth(), pSourceImage.getHeight(), scanArea, nMophSize),

@@ -12,6 +12,20 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    implementation project(path: ':yoonfactory')
+    implementation project(path: ':yoonfile')
+}
+
+def libpath = '../../../libs/'
+jar {
+    manifest {
+        attributes 'Title': 'YoonImage', 'Version': version
+    }
+    archiveName libpath + archiveName
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 test {

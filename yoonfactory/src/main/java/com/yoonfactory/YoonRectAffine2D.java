@@ -1,7 +1,5 @@
 package com.yoonfactory;
 
-import org.jetbrains.annotations.NotNull;
-
 public class YoonRectAffine2D implements IYoonRect<Double> {
 
     private final YoonVector2D m_vecCornerOrigin_TopLeft = new YoonVector2D();
@@ -148,7 +146,7 @@ public class YoonRectAffine2D implements IYoonRect<Double> {
         setRotation(dTheta);
     }
 
-    public YoonRectAffine2D(@NotNull YoonVector2D vecPos, double dWidth, double dHeight, double dTheta) {
+    public YoonRectAffine2D(YoonVector2D vecPos, double dWidth, double dHeight, double dTheta) {
         m_vecCenter = (YoonVector2D) vecPos.clone();
         setWidth(dWidth);
         setHeight(dHeight);
