@@ -1,6 +1,5 @@
 package com.yoonfactory;
 
-// 명월님 제작 (nowonbun@gmail.com)
 // refer : https://nowonbun.tistory.com/317
 
 import java.lang.Exception;
@@ -60,7 +59,7 @@ public class BitConverter {
         if (bytes.length != 2)
             throw new Exception(
                     "The length of the byte array must be at least 2 bytes long.");
-        return (char) ((0xff & bytes[index]) << 8 | (0xff & bytes[index + 1]) << 0);
+        return (char) ((0xff & bytes[index]) << 8 | (0xff & bytes[index + 1]));
     }
 
     public double toDouble(byte[] bytes, int index) throws Exception {
@@ -74,29 +73,29 @@ public class BitConverter {
         if (bytes.length != 8)
             throw new Exception(
                     "The length of the byte array must be at least 8 bytes long.");
-        return (short) ((0xff & bytes[index]) << 8 | (0xff & bytes[index + 1]) << 0);
+        return (short) ((0xff & bytes[index]) << 8 | (0xff & bytes[index + 1]));
     }
 
     public static int toInt32(byte[] bytes, int index) throws Exception {
         if (bytes.length != 4)
             throw new Exception(
                     "The length of the byte array must be at least 4 bytes long.");
-        return (int) ((int) (0xff & bytes[index]) << 56
-                | (int) (0xff & bytes[index + 1]) << 48
-                | (int) (0xff & bytes[index + 2]) << 40 | (int) (0xff & bytes[index + 3]) << 32);
+        return (0xff & bytes[index]) << 24
+                | (0xff & bytes[index + 1]) << 16
+                | (0xff & bytes[index + 2]) << 8 | (0xff & bytes[index + 3]);
     }
 
     public static long toInt64(byte[] bytes, int index) throws Exception {
         if (bytes.length != 8)
             throw new Exception(
                     "The length of the byte array must be at least 8 bytes long.");
-        return (long) ((long) (0xff & bytes[index]) << 56
+        return (long) (0xff & bytes[index]) << 56
                 | (long) (0xff & bytes[index + 1]) << 48
                 | (long) (0xff & bytes[index + 2]) << 40
                 | (long) (0xff & bytes[index + 3]) << 32
                 | (long) (0xff & bytes[index + 4]) << 24
                 | (long) (0xff & bytes[index + 5]) << 16
-                | (long) (0xff & bytes[index + 6]) << 8 | (long) (0xff & bytes[index + 7]) << 0);
+                | (long) (0xff & bytes[index + 6]) << 8 | (long) (0xff & bytes[index + 7]);
     }
 
     public static float toSingle(byte[] bytes, int index) throws Exception {
