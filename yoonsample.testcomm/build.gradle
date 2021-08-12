@@ -22,7 +22,9 @@ dependencies {
 def libpath = '../../../libs/'
 jar {
     manifest {
-        attributes 'Title': 'TestComm', 'Version': version
+        attributes 'Title': 'TestComm',
+                'Version': version,
+                'Main-Class': 'com.yoonsample.testcomm.Main'
     }
     archiveName libpath + archiveName
     dependsOn configurations.runtime
