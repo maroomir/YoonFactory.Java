@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.yoonsample'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation group: 'org.rxtx', name: 'rxtx', version: '2.1.7'
+    implementation project(path: ':yoonfactory')
+    implementation project(path: ':yooncomm')
+    implementation project(path: ':yoonlog')
+}
+
+def libpath = '../../../libs/'
+jar {
+    manifest {
+        attributes 'Title': 'TestComm', 'Version': version
+    }
+    archiveName libpath + archiveName
+    dependsOn configurations.runtime
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+application {
+    mainClassName = 'com.yoonsample.testcomm.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
